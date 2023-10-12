@@ -9,14 +9,14 @@ body {
 }
 :root {
   --primary-color: #000000;
-  --background-color: #ffffffa3;
+  --background-color: #fff6f19f;
   --text-color: #333;
   --border-color:red;
   
 }
 .dark-theme {
   --primary-color: #000000;
-  --background-color: #33333357;
+  --background-color: #0000009c;
   --text-color: #fff;
   margin: 0%;
   padding: 0%;
