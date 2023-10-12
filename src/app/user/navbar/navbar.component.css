@@ -1,0 +1,46 @@
+
+.nav {
+  height: 23px;
+  width: 100%;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  transition: 1s;
+  margin: 0%;
+  padding: 0%;
+  outline: none;
+  top: 0;
+  left: 0;
+  right: 0;
+  border: 1px solid var(--text-color);
+
+}
+
+
+button{
+    margin-top: 1%;
+    margin-left: 1%;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    opacity: 0;
+    transition: 1s;
+    border: 1px solid var(--text-color);
+    font-family: Kaisei Decol;
+  font-size: 110%;
+}
+
+.openmenu{
+    text-align: center;
+    font-family: Kaisei Decol;
+  font-size: 120%;
+}
+
+
+.nav:hover {
+    height: 100px;
+    transition: 1s;
+}
+
+.nav:hover>button{
+    opacity: 1;
+    
+}

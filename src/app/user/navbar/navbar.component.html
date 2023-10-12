@@ -1,0 +1,10 @@
+
+<div class="nav">
+    <div class="openmenu">MENU</div>
+    <button *ngFor="let link of navLinks">
+        <a [routerLink]="link.route">{{ link.label }}</a>
+    </button>
+    <button (click)="toggleTheme()">Toggle Theme</button>
+   
+    </div>
+
