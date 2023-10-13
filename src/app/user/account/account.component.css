@@ -1,0 +1,247 @@
+.content {
+  color: var(--text-color);
+  transition: 1s;
+  margin: 0%;
+  padding: 0%;
+  outline: none;
+  top: 0;
+  left: 0;
+  right: 0;
+
+  background-size: cover;
+  background-attachment: fixed;
+  height: 100%;
+  width: 100%;
+  animation: ani 2.5s forwards;
+}
+
+:root {
+  --primary-color: #007bff;
+  --background-color: #fff;
+  --text-color: #333;
+  transition: 1s;
+}
+.dark-theme {
+  --primary-color: #42a5f5;
+  --background-color: #333;
+  --text-color: #fff;
+  transition: 1s;
+}
+
+.my-custom-div {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  border: 1px solid var(--border-color);
+
+  transition: 1s;
+  width: 70%;
+  height: 92%;
+  margin-top: 1%;
+  margin-left: 1%;
+  position: fixed;
+}
+.my-custom-div2 {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  transition: 1s;
+  width: 27%;
+  height: 31%;
+  position: fixed;
+}
+table th {
+  height: 2%;
+  width: 20%;
+}
+.table2 th {
+  height: 2%;
+  width: 20%;
+}
+table tr {
+  height: 30%;
+  font-size: 100%;
+  text-align: center;
+}
+table {
+  border-collapse: collapse;
+  height: 215px;
+}
+.table2 tr {
+  height: 30%;
+  font-size: 100%;
+  text-align: center;
+}
+table tr:nth-child(even) {
+  background: #8a8a8a15 !important;
+}
+
+table tr:nth-child(even):hover {
+  background: var(--text-color);
+}
+
+table tr:hover {
+  background: #5e5e5e45 !important;
+}
+
+div.fixed-block {
+  width: 100%;
+  height: 30px;
+  position: absolute;
+  z-index: 2;
+}
+div.scroll {
+  width: 100%;
+  height: 100%;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  overflow-y: scroll;
+}
+
+.container {
+  position: relative;
+  height: 100vh;
+}
+.userbox {
+  background-color: var(--background-color);
+  color: var(--text-color); /* Uses the text-color variable */
+  border: 1px solid var(--border-color);
+
+  transition: 1s;
+  width: 27%;
+  height: 92%;
+  margin-top: 0%;
+  margin-left: 71%;
+  position: fixed;
+}
+@keyframes ani {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.imgBook {
+  margin-top: 4%;
+  margin-left: 12%;
+  width: 80%;
+  height: 90%;
+}
+
+.imgBorrowedBook {
+  margin-top: 1%;
+  margin-left: 1%;
+  width: 50%;
+  height: 70%;
+}
+
+#line_block {
+  display: inline-block;
+  width: 24%;
+  height: 55%;
+  margin: 1%;
+  text-align: center;
+}
+.hover-image-scale {
+  display: inline-block;
+  overflow: hidden;
+}
+.hover-image-scale img {
+  transition: 1s;
+  display: block;
+}
+.hover-image-scale img:hover {
+  transform: scale(1.2);
+}
+
+.img__description {
+  position: sticky;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin-left: 4%;
+  font-family: Kaisei Decol;
+  font-size: large;
+  background: var(--background-color);
+  color: #ffe1e1;
+  text-decoration: none;
+  visibility: collapse;
+  opacity: 0;
+  /* transition effect. not necessary */
+  transition: opacity 0.2s, visibility 0.2s;
+}
+.al {
+  text-decoration: none;
+}
+.hover-image-scale:hover .img__description {
+  visibility: visible;
+  opacity: 1;
+}
+.available {
+  color: rgb(6, 71, 6);
+}
+
+.reserved {
+  color: rgb(59, 6, 6);
+}
+
+.userPhoto {
+  width: 30%;
+  height: 20%;
+  margin-left: 35%;
+  margin-top: 5%;
+}
+.userTextLogin {
+  font-family: Kaisei Decol;
+  font-size: 170%;
+  text-align: center;
+  word-break: break-all;
+}
+.userTextEmail {
+  font-family: Kaisei Decol;
+  font-size: 150%;
+  text-align: center;
+  word-break: break-all;
+}
+.buttonEditUser {
+  margin-top: 1%;
+  margin-left: 30%;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  transition: 1s;
+  border: 1px solid var(--text-color);
+  font-family: Kaisei Decol;
+  font-size: 110%;
+  width: 40%;
+}
+
+.buttonBookDes {
+  margin-top: 1%;
+  background-color: var(--button-color);
+  color: var(--text-color);
+  transition: 1s;
+  border: 1px solid var(--text-color);
+  font-family: Kaisei Decol;
+  font-size: 80%;
+  width: 70%;
+}
+input {
+  width: 50%;
+  border-radius: 20px;
+  background: var(--background-color);
+  margin-top: 2%;
+  margin-left: 24%;
+  color: var(--text-color);
+  text-align: center;
+  font-size: large;
+  font-family: Kaisei Decol;
+}
+input::-webkit-input-placeholder {
+  color: var(--text-color);
+  opacity: 70%;
+  text-align: center;
+  font-size: large;
+  font-family: Kaisei Decol;
+}
