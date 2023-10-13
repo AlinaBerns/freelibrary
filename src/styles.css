@@ -8,14 +8,22 @@ body {
 }
 :root {
   --primary-color: #000000;
-  --background-color: #ededed9f;
-  --text-color: #333;
-  --border-color: red;
+  --background-color: #bdbcb58e;
+  --text-color: #080808d8;
+  --border-color: rgba(255, 255, 255, 0.578);
+  background-image: url(assets/background_img3.jpg);
+  background-size: cover;
+  --button-color: rgba(230, 210, 174, 0.854);
+  
 }
 .dark-theme {
+  
   --primary-color: #000000;
-  --background-color: #0000009c;
-  --text-color: #fff;
+  --background-color: #10010c9c;
+  background-image: url(assets/background_img6.jpg);
+  --text-color: #dcdcdcea;
+  --border-color: rgba(255, 255, 255, 0.637);
+  --button-color: rgba(0, 0, 0, 0.744);
   margin: 0%;
   padding: 0%;
   outline: none;

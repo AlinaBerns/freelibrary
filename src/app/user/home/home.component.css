@@ -7,7 +7,7 @@
   top: 0;
   left: 0;
   right: 0;
-  background-image: url(/assets/background_img6.jpg);
+  
   background-size: cover;
   background-attachment: fixed;
   height: 100%;
@@ -30,8 +30,8 @@
 
 .my-custom-div {
   background-color: var(--background-color);
-  color: var(--text-color); /* Uses the text-color variable */
-  border: 1px solid var(--text-color);
+  color: var(--text-color);
+  border: 1px solid var(--border-color);
 
   transition: 1s;
   width: 70%;
@@ -45,54 +45,50 @@
   color: var(--text-color);
   transition: 1s;
   width: 27%;
-  height: 34%;
+  height: 31%;
   position: fixed;
+  
 }
 table th {
-  height: 5px;
-  width: 200px;
+  height: 2%;
+  width: 20%;
 }
 .table2 th {
-  height: 5px;
-  width: 200px;
+  height: 2%;
+  width: 20%;
 }
 table tr {
-  height: 50px;
-  font-size: 17px;
+  height: 30%;
+  font-size: 100%;
   text-align: center;
 }
+table {
+  border-collapse: collapse;
+  height: 31%;
+}
 .table2 tr {
-  height: 50px;
-  font-size: 17px;
+  height: 30%;
+  font-size: 100%;
   text-align: center;
 }
 table tr:nth-child(even) {
-  background: #2d2d2d82 !important;
+  background: #8a8a8a15 !important;
 }
-.table2 tr:nth-child(even) {
-  background: #00000082 !important;
-}
+
 table tr:nth-child(even):hover {
-  background: #b0b0b089 !important;
+  background: var(--text-color);
 }
-.table2 tr:nth-child(even):hover {
-  background: #b0b0b089 !important;
-}
+
 table tr:hover {
-  background: #b0b0b089 !important;
-}
-.table2 tr:hover {
-  background: #b0b0b089 !important;
+  background: #5e5e5e45 !important;
 }
 
 
 div.fixed-block {
-  width: 30px;
+  width: 100%;
   height: 30px;
   position: absolute;
   z-index: 2;
-  top: 20px;
-  right: 20px;
 }
 div.scroll {
   width: 100%;
@@ -102,7 +98,6 @@ div.scroll {
   top: 0;
   left: 0;
   overflow-y: scroll;
-  background-color: rgba(255, 255, 255, 0);
 }
 
 .container {
@@ -112,7 +107,7 @@ div.scroll {
 .userbox {
   background-color: var(--background-color);
   color: var(--text-color); /* Uses the text-color variable */
-  border: 1px solid var(--text-color);
+  border: 1px solid var(--border-color);
 
   transition: 1s;
   width: 27%;
@@ -136,12 +131,12 @@ div.scroll {
   height: 90%;
 }
 
-/* .imgBorrowedBook { */
-/* margin-top: 10px; */
-/* margin-left: 10px; */
-/* width: 50px; */
-/* height: 70px; */
-/* } */
+.imgBorrowedBook {
+  margin-top: 1%;
+  margin-left: 1%;
+  width: 50%;
+  height: 70%;
+}
 
 #line_block {
   display: inline-block;
@@ -168,10 +163,10 @@ div.scroll {
   bottom: 0;
   left: 0;
   right: 0;
-  margin-left: 8%;
+  margin-left: 4%;
   font-family: Kaisei Decol;
   font-size: large;
-  background: rgba(0, 0, 0, 0.874);
+  background: var(--background-color);
   color: #ffe1e1;
   text-decoration: none;
   visibility: collapse;
@@ -224,9 +219,9 @@ div.scroll {
   width: 40%;
 }
 
-.buttonBookDes{
+.buttonBookDes {
   margin-top: 1%;
-  background-color: var(--background-color );
+  background-color: var(--button-color);
   color: var(--text-color);
   transition: 1s;
   border: 1px solid var(--text-color);
