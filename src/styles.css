@@ -8,12 +8,12 @@ body {
 }
 :root {
   --primary-color: #000000;
-  --background-color: #bdbcb5c0;
+  --background-color: #ffffffa5;
   --text-color: #080808d8;
   --border-color: rgba(255, 255, 255, 0.578);
   background-image: url(assets/background_img3.jpg);
   background-size: cover;
-  --button-color: rgba(230, 210, 174, 0.854);
+  --button-color: rgba(222, 213, 196, 0.854);
   
 }
 .dark-theme {
