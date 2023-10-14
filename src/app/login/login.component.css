@@ -2,15 +2,15 @@ body {
   margin: 0%;
   padding: 0%;
   outline: none;
-  background-image: url(/assets/background_img4.jpg);
-  background-size: cover;
-  background-attachment: fixed;
-  width: 250%;
+   background-image: url(/assets/background_img4.jpg); 
+   background-size: cover; 
+   background-attachment: fixed; 
+   width: 250%; 
   top: 0;
   left: 0;
   right: 0;
   display: flex;
-  height: 1405px;
+   height: 1405px; 
   
 }
 .box {

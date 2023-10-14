@@ -13,9 +13,22 @@ body {
   --border-color: rgba(255, 255, 255, 0.578);
   background-image: url(assets/background_img3.jpg);
   background-size: cover;
+  background-attachment: fixed;
   --button-color: rgba(222, 213, 196, 0.854);
   
 }
+.mid-theme {
+  --primary-color: #000000;
+  --background-color: #ffffffa5;
+  --text-color: #080808d8;
+  --border-color: rgba(255, 255, 255, 0.578);
+  background-image: url(assets/background_img4.jpg);
+  background-size: cover;
+  background-attachment: fixed;
+  --button-color: rgba(222, 213, 196, 0.854);
+  
+}
+
 .dark-theme {
   
   --primary-color: #000000;
