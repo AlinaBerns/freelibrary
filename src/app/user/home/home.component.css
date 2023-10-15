@@ -1,3 +1,16 @@
+.status-available {
+  color: rgb(11, 117, 11);
+}
+
+.status-reserved {
+  color: orange;
+}
+
+.status-unavailable {
+  color: rgb(112, 13, 13);
+}
+
+
 .content {
   color: var(--text-color);
   transition: 1s;

@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { AuthService } from '../services/security/auth.service';
+import { NgForm } from '@angular/forms';
+
 
 @Component({
   selector: 'app-login',
@@ -6,6 +9,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
+
+  username: string = '';
+  password: string = '';
+
+
+  constructor(private authService: AuthService) {}
+
   scaleValue = 1;
 
   changeScale() {
@@ -17,4 +27,7 @@ export class LoginComponent {
     this.scaleValue = 1; 
   }
 
+  logIn() {
+    this.authService.login(this.username, this.password);
+  }
 }

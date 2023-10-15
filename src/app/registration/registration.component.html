@@ -16,18 +16,15 @@
             <div class="loginbox">
               <div class="text2">REGISTRATION</div>
               <div>
-                <input type="text" name="username" placeholder="username" required/>
+                <input id="username" type="text" name="username" placeholder="username" required/>
               </div>
               <div>
-                <input type="text" placeholder="DELETE THIS ?" />
+                <input id="email" type="text" name="email" placeholder="email" required />
               </div>
               <div>
-                <input type="text" name="email" placeholder="email" required />
+                <input id="password" type="password" name="password" placeholder="Password" required />
               </div>
-              <div>
-                <input type="password" name="password" placeholder="Password" required />
-              </div>
-              <button>SIGN UP</button>
+              <button (click)="register()">SIGN UP</button>
               <div class="text3">
                 Already have an account? <br>Login below
               </div>

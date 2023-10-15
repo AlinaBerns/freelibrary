@@ -7,8 +7,10 @@
     <button (click)="toggleTheme()">Toggle Theme</button>
     <button routerLink="/cart">CART</button>
     <form action="" method="get">
-        <input type="text" placeholder="Search..." />
+      <input [formControl]="searchControl" type="text" placeholder="Search...">
       </form>
-      <a routerLink="/login"><img src="/assets/exit.png" alt=""/></a>
+      <button style="float: right;">
+      <a (click)="logOut($event)"><img src="/assets/exit.png" alt=""/></a>
+    </button>
     </div>
 
