@@ -20,34 +20,34 @@
       </div>
 
       <!-- <LogIn Form> -->
-      <form>
-        <div class="loginbox">
-          <div class="text2">LOGIN</div>
-          <div>
-            <input
-              type="text"
-              placeholder="username"
-              name="username"
-              placeholder="username"
-              required
-            />
+        <form (ngSubmit)="logIn()" #loginForm="ngForm">
+          <div class="loginbox">
+            <div class="text2">LOGIN</div>
+            <div>
+              <input
+                type="text"
+                placeholder="username"
+                name="username"
+                [(ngModel)]="username"
+                required
+              />
+            </div>
+            <div>
+              <input
+                type="password"
+                placeholder="Password"
+                name="password"
+                [(ngModel)]="password"
+                required
+              />
+            </div>
+            <button type="submit" class="button0">LOG IN</button>
+            <div class="text3">
+              Don't you have an account? <br />Register below.
+            </div>
+            <button class="button0" routerLink="/registration">SIGN UP</button>
           </div>
-          <div>
-            <input
-              type="password"
-              placeholder="Password"
-              name="password"
-              placeholder="Password"
-              required
-            />
-          </div>
-          <button class="button0" routerLink="/admin/home">LOG IN</button>
-          <div class="text3">
-            Don't you have an account? <br />Register below.
-          </div>
-          <button class="button0" routerLink="/registration">SIGN UP</button>
-        </div>
-      </form>
+        </form>
 
       <div class="text01">
         Our project was created in 2023 by three enthusiasts in <br />order for

@@ -2,8 +2,8 @@
   <app-navbarcart></app-navbarcart>
   <div class="container">
     <div style="display: flex">
-      <button class="buttonCart" style="position: fixed">RESERVE BOOKS</button>
-      <button class="buttonCart" style="position: fixed; margin-left: 22%">
+      <button  (click)="reserveBooks()" class="buttonCart" style="position: fixed">RESERVE BOOKS</button>
+      <button (click)="clearCart()" class="buttonCart" style="position: fixed; margin-left: 22%">
         CLEAR CART
       </button>
     </div>
@@ -12,13 +12,14 @@
       <div class="fixed-block"></div>
       <div class="scroll">
         <table>
-          <tr>
+
+          <tr id="{{book.id}}" *ngFor="let book of cartService.items">
             <th>
               <img src="/assets/imgBooks/book1.jpg" alt="" class="imgBook" />
             </th>
-            <th>"Revival"</th>
-            <th>Steven King</th>
-            <th>9123456789123</th>
+            <th>{{book.title}}</th>
+            <th>{{book.author.name}}</th>
+            <th>{{book.isbn}}</th>
             <th style="width: 5%">
               <div>
                 <input
@@ -32,147 +33,10 @@
               </div>
             </th>
             <th>
-              <button class="buttonCart" style="width: 80%">RESERVE</button>
+              <button (click)="removeBookFromCart(book.id)" class="buttonCart" style="width: 80%">Remove</button>
             </th>
           </tr>
-          <tr>
-            <th>
-              <img src="/assets/imgBooks/book1.jpg" alt="" class="imgBook" />
-            </th>
-            <th>"Revival"</th>
-            <th>Steven King</th>
-            <th>9123456789123</th>
-            <th style="width: 5%">
-              <div>
-                <input
-                  id="highload0"
-                  class="checkbox-custom"
-                  name="highload0"
-                  type="checkbox"
-                  style="height: 20px; width: 20px"
-                />
-                <label for="highload0" class="checkbox-custom-label"></label>
-              </div>
-            </th>
-            <th>
-              <button class="buttonCart" style="width: 80%">RESERVE</button>
-            </th>
-          </tr>
-          <tr>
-            <th>
-              <img src="/assets/imgBooks/book1.jpg" alt="" class="imgBook" />
-            </th>
-            <th>"Revival"</th>
-            <th>Steven King</th>
-            <th>9123456789123</th>
-            <th style="width: 5%">
-              <div>
-                <input
-                  id="highload0"
-                  class="checkbox-custom"
-                  name="highload0"
-                  type="checkbox"
-                  style="height: 20px; width: 20px"
-                />
-                <label for="highload0" class="checkbox-custom-label"></label>
-              </div>
-            </th>
-            <th>
-              <button class="buttonCart" style="width: 80%">RESERVE</button>
-            </th>
-          </tr>
-          <tr>
-            <th>
-              <img src="/assets/imgBooks/book1.jpg" alt="" class="imgBook" />
-            </th>
-            <th>"Revival"</th>
-            <th>Steven King</th>
-            <th>9123456789123</th>
-            <th style="width: 5%">
-              <div>
-                <input
-                  id="highload0"
-                  class="checkbox-custom"
-                  name="highload0"
-                  type="checkbox"
-                  style="height: 20px; width: 20px"
-                />
-                <label for="highload0" class="checkbox-custom-label"></label>
-              </div>
-            </th>
-            <th>
-              <button class="buttonCart" style="width: 80%">RESERVE</button>
-            </th>
-          </tr>
-          <tr>
-            <th>
-              <img src="/assets/imgBooks/book1.jpg" alt="" class="imgBook" />
-            </th>
-            <th>"Revival"</th>
-            <th>Steven King</th>
-            <th>9123456789123</th>
-            <th style="width: 5%">
-              <div>
-                <input
-                  id="highload0"
-                  class="checkbox-custom"
-                  name="highload0"
-                  type="checkbox"
-                  style="height: 20px; width: 20px"
-                />
-                <label for="highload0" class="checkbox-custom-label"></label>
-              </div>
-            </th>
-            <th>
-              <button class="buttonCart" style="width: 80%">RESERVE</button>
-            </th>
-          </tr>
-          <tr>
-            <th>
-              <img src="/assets/imgBooks/book1.jpg" alt="" class="imgBook" />
-            </th>
-            <th>"Revival"</th>
-            <th>Steven King</th>
-            <th>9123456789123</th>
-            <th style="width: 5%">
-              <div>
-                <input
-                  id="highload0"
-                  class="checkbox-custom"
-                  name="highload0"
-                  type="checkbox"
-                  style="height: 20px; width: 20px"
-                />
-                <label for="highload0" class="checkbox-custom-label"></label>
-              </div>
-            </th>
-            <th>
-              <button class="buttonCart" style="width: 80%">RESERVE</button>
-            </th>
-          </tr>
-          <tr>
-            <th>
-              <img src="/assets/imgBooks/book1.jpg" alt="" class="imgBook" />
-            </th>
-            <th>"Revival"</th>
-            <th>Steven King</th>
-            <th>9123456789123</th>
-            <th style="width: 5%">
-              <div>
-                <input
-                  id="highload0"
-                  class="checkbox-custom"
-                  name="highload0"
-                  type="checkbox"
-                  style="height: 20px; width: 20px"
-                />
-                <label for="highload0" class="checkbox-custom-label"></label>
-              </div>
-            </th>
-            <th>
-              <button class="buttonCart" style="width: 80%">RESERVE</button>
-            </th>
-          </tr>
+
         </table>
       </div>
     </div>

@@ -3,30 +3,44 @@
     <div class="container">
       <div class="my-custom-div">
         <div class="fixed-block">
+
+        
         <p class="userTextLogin">EDIT PROFILE</p>
-        <p class="userTextLogin" style="font-size: medium;">CHANGE PERSONAL INFORMATION</p>
+
+        <p class="userTextLogin" style="font-size: medium;">CHANGE USERNAME</p>
         <div>
-            <input type="text" placeholder="New first name" />
-          </div>
-          <div>
-            <input type="text" placeholder="New last name" />
-          </div>
+            <input type="text" placeholder="New username" [(ngModel)]="newUsername" (input)="onInputChange('username')" [disabled]="disableOtherFields && activeField !== 'username'"/>
+            <button class="buttonEditUser" style="margin-top: 3%; width: 15%; margin-left: 42%; " (click)="updateUserInfo()">CONFIRM</button>
+        </div>
+
           <p class="userTextLogin" style="font-size: medium; margin-top: 3%;">CHANGE EMAIL</p>
           <div>
-            <input type="text" placeholder="New email" />
+            <input type="text" placeholder="New email" [(ngModel)]="newEmail" (input)="onInputChange('email')" [disabled]="disableOtherFields && activeField !== 'email'"/>
+            <button class="buttonEditUser" style="margin-top: 3%; width: 15%; margin-left: 42%;" (click)="updateUserInfo()">CONFIRM</button>
           </div>
+
+          <div>
           <p class="userTextLogin" style="font-size: medium; margin-top: 3%;">CHANGE PASSWORD</p>
           <div>
-            <input type="password" placeholder="Old password" />
+            <input type="password" placeholder="Old password" [(ngModel)]="oldPassword" (input)="onInputChange('password')" [disabled]="disableOtherFields && activeField !== 'password'" />
           </div>
+
           <div>
-            <input type="password" placeholder="New password" />
+            <input type="password" placeholder="New password" [(ngModel)]="newPassword" (input)="onInputChange('password')" [disabled]="disableOtherFields && activeField !== 'password'"/>
           </div>
+          
           <div>
-            <input type="password" placeholder="Confirm your new password" />
+            <input type="password" placeholder="Confirm your new password" [(ngModel)]="confirmPassword" (input)="onInputChange('password')" [disabled]="disableOtherFields && activeField !== 'password'"/>
           </div>
-          <button class="buttonEditUser" style="margin-top: 3%; width: 15%; margin-left: 42%;">CONFIRM</button>
+
+          <button class="buttonEditUser" style="margin-top: 3%; width: 15%; margin-left: 42%; " (click)="changePassword()">CONFIRM</button>
+
+        </div>
+
+          <button class="buttonEditUser" style="margin-top: 3%; width: 15%; margin-left: 42%; background-color: darkred;" (click)="deleteAccount()">DELETE ACCOUNT</button>
     </div>
+
+         <!--REMOVE THIS ?-->
         
         <div class="userbox">
           <img src="/assets/userPhotos/userPhoto1.png" alt="" class="userPhoto">

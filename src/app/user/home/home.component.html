@@ -4,41 +4,38 @@
     <div class="my-custom-div">
       <div class="fixed-block"></div>
       <div class="scroll">
-        <div id="line_block" class="hover-image-scale">
-          <img src="/assets/imgBooks/book1.jpg" alt="" class="imgBook" />
-          <span class="available">AVAILABLE</span>
+
+        <!--BOOK-->
+        <div id="line_block" class="hover-image-scale" *ngFor="let book of books">
+          <img src="/assets/imgBooks/book{{book.id}}.jpg" alt="" class="imgBook" />
+          <span [ngClass]="{
+            'status-available': book.status === 'AVAILABLE',
+            'status-reserved': book.status === 'RESERVED',
+            'status-unavailable': book.status === 'UNAVAILABLE'
+          }" >{{book.status}}</span>
           <div class="img__description">
+            <div>
+              <p>
+                <b>{{book.title}}</b>
+              </p>
+            </div>
             <div>
               <button class="buttonBookDes">description</button>
             </div>
             <div>
-              <button class="buttonBookDes">ADD TO CART</button>
+              <button class="buttonBookDes" *ngIf="book.status === 'AVAILABLE' && cartItemCount < 5 && !bookIsInCart(book)" (click)="addToCart(book)">ADD TO CART</button>
             </div>
             <div>
-              <button class="buttonBookDes">ALREADY IN CARD</button>
+              <button class="buttonBookDes" *ngIf="bookIsInCart(book)" [disabled]="true">ALREADY IN CARD</button>
             </div>
           </div>
         </div>
-        <div id="line_block" class="hover-image-scale">
-          <img src="/assets/imgBooks/book1.jpg" alt="" class="imgBook" />
-          <span class="available">AVAILABLE</span>
-          <div class="img__description">
-            <div>
-              <button class="buttonBookDes">description</button>
-            </div>
-            <div>
-              <button class="buttonBookDes">ADD TO CART</button>
-            </div>
-            <div>
-              <button class="buttonBookDes">ALREADY IN CARD</button>
-            </div>
-          </div>
-        </div>
+
       </div>
       <div class="userbox">
         <img src="/assets/userPhotos/userPhoto1.png" alt="" class="userPhoto">
-        <p class="userTextLogin">Mr. Ben Pitt</p>
-        <p class="userTextEmail">bennypitt@gmail.com</p>
+        <p class="userTextLogin">{{username}}</p>
+        <p class="userTextEmail">{{email}}</p>
         <button class="buttonEditUser" routerLink="/account">EDIT PROFILE</button>
         <p class="userTextLogin">BORROWED BOOKS</p>
         <table>
@@ -54,93 +51,13 @@
               <th style="width: 200px;"></th>
               <th style="width: 200px;"></th>
               
-              <tr>
+              <tr *ngFor="let book of borrowedBooks">
                 <td>
                   <img src="/assets/imgBooks/book1.jpg" alt="" class="imgBorrowedBook" />
                 </td>
-                <td>TEST</td>
-                <td>TEST</td>
-                
-              </tr>
-              <tr>
-                <td>
-                  <img src="/assets/imgBooks/book1.jpg" alt="" class="imgBorrowedBook" />
-                </td>
-                <td>TEST</td>
-                <td>TEST</td>
-                
-              </tr>
-              <tr>
-                <td>
-                  <img src="/assets/imgBooks/book1.jpg" alt="" class="imgBorrowedBook" />
-                </td>
-                <td>TEST</td>
-                <td>TEST</td>
-                
-              </tr>
-              <tr>
-                <td>
-                  <img src="/assets/imgBooks/book1.jpg" alt="" class="imgBorrowedBook" />
-                </td>
-                <td>TEST</td>
-                <td>TEST</td>
-                
-              </tr>
-              <tr>
-                <td>
-                  <img src="/assets/imgBooks/book1.jpg" alt="" class="imgBorrowedBook" />
-                </td>
-                <td>TEST</td>
-                <td>TEST</td>
-                
-              </tr>
-              <tr>
-                <td>
-                  <img src="/assets/imgBooks/book1.jpg" alt="" class="imgBorrowedBook" />
-                </td>
-                <td>TEST</td>
-                <td>TEST</td>
-                
-              </tr>
-              <tr>
-                <td>
-                  <img src="/assets/imgBooks/book1.jpg" alt="" class="imgBorrowedBook" />
-                </td>
-                <td>TEST</td>
-                <td>TEST</td>
-                
-              </tr>
-              <tr>
-                <td>
-                  <img src="/assets/imgBooks/book1.jpg" alt="" class="imgBorrowedBook" />
-                </td>
-                <td>TEST</td>
-                <td>TEST</td>
-                
-              </tr>
-              <tr>
-                <td>
-                  <img src="/assets/imgBooks/book1.jpg" alt="" class="imgBorrowedBook" />
-                </td>
-                <td>TEST</td>
-                <td>TEST</td>
-                
-              </tr>
-              <tr>
-                <td>
-                  <img src="/assets/imgBooks/book1.jpg" alt="" class="imgBorrowedBook" />
-                </td>
-                <td>TEST</td>
-                <td>TEST</td>
-                
-              </tr>
-              <tr>
-                <td>
-                  <img src="/assets/imgBooks/book1.jpg" alt="" class="imgBorrowedBook" />
-                </td>
-                <td>TEST</td>
-                <td>TEST</td>
-                
+                <td>{{book.book.title}}</td>
+                <td>{{book.dateOfReturn}}</td>
+
               </tr>
             </div>
           </div>

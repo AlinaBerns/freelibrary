@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
 })
 export class NavService {
   private navLinks: { label: string; route: string }[] = [
-    // { label: 'Home', route: '/' },
+    // { label: 'Home', route: '' },
     // { label: 'Account', route: '/account' }
   ];
 

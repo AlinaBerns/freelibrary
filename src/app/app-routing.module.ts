@@ -5,13 +5,14 @@ import { AccountComponent } from './user/account/account.component';
 import { CartComponent } from './user/cart/cart.component';
 import { LoginComponent } from './login/login.component';
 import { RegistrationComponent } from './registration/registration.component';
+import { authGuard } from './services/security/auth.guard';
 
 const routes: Routes = [
-  {path: '', component:HomeComponent},
-  {path: 'account', component:AccountComponent},
-  {path: 'cart', component:CartComponent},
-  {path:'login', component:LoginComponent},
-  {path:'registration', component:RegistrationComponent}
+  {path: '', component:HomeComponent, canActivate: [authGuard], data: { allowedRoles: ['ROLE_USER'] } },
+  {path: 'account', component:AccountComponent , canActivate: [authGuard], data: { allowedRoles: ['ROLE_USER'] }},
+  {path: 'cart', component:CartComponent , canActivate: [authGuard], data: { allowedRoles: ['ROLE_USER'] }}, 
+  {path:'login', component:LoginComponent, canActivate: [authGuard]},
+  {path:'registration', component:RegistrationComponent, canActivate: [authGuard]},
 ];
 
 @NgModule({
