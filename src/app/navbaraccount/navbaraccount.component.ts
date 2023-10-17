@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NavService } from 'src/app/nav.service';
 import { ThemeService } from 'src/app/theme.service';
+import { AuthService } from '../services/security/auth.service';
 
 @Component({
   selector: 'app-navbaraccount',
@@ -11,7 +12,7 @@ export class NavbaraccountComponent implements OnInit{
   navLinks: { label: string; route: string }[] = [];
   isContentVisible = false;
 
-  constructor(private themeService: ThemeService, private navService: NavService) {}
+  constructor(private themeService: ThemeService, private navService: NavService, private authService:AuthService) {}
 
   ngOnInit(): void {
     this.navLinks = this.navService.getNavLinks();
@@ -26,6 +27,12 @@ export class NavbaraccountComponent implements OnInit{
 
   hideContent() {
     this.isContentVisible = false;
+  }
+  logOut(event: Event){
+    console.log('logOut method called');
+    event.stopImmediatePropagation();
+    event.stopPropagation();
+    this.authService.logOut();
   }
 }
 

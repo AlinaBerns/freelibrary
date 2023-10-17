@@ -37,10 +37,10 @@
         <p class="userTextLogin">{{username}}</p>
         <p class="userTextEmail">{{email}}</p>
         <button class="buttonEditUser" routerLink="/account">EDIT PROFILE</button>
-        <p class="userTextLogin">BORROWED BOOKS</p>
+        <p class="userTextLogin">YOUR BOOKS</p>
         <table>
           <thead>
-            <td style="width: 25%; text-align: center;">image</td>
+            <td style="width: 25%; text-align: center;">status</td>
             <td style="width: 52%; text-align: center;">title</td>
             <td style="width:35%; text-align: center;">date of return</td>
           </thead>
@@ -51,14 +51,47 @@
               <th style="width: 200px;"></th>
               <th style="width: 200px;"></th>
               
-              <tr *ngFor="let book of borrowedBooks">
+              <tr *ngFor="let book of borrowedBooks" >
                 <td>
                   <img src="/assets/imgBooks/book1.jpg" alt="" class="imgBorrowedBook" />
                 </td>
                 <td>{{book.book.title}}</td>
                 <td>{{book.dateOfReturn}}</td>
-
               </tr>
+
+                <tr>
+                  <td>&nbsp;&nbsp;RESERVED&nbsp;&nbsp;&nbsp;&nbsp; </td>
+                  <td class="textTable">lekrfdkslkdjfdjflksjsdnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnffffffffffffffffffffffffffffffffffffffffffffffffff</td>
+            
+                  <td>12-02-2022</td>
+                </tr>
+                <tr>
+                  <td>&nbsp;&nbsp;BORROWED&nbsp;&nbsp;&nbsp;&nbsp; </td>
+                  <td class="textTable">lekrfdkslkdjfdjflksjsdnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnffffffffffffffffffffffffffffffffffffffffffffffffff</td>
+            
+                  <td>12-02-2022</td>
+                </tr>
+                <tr>
+                  <td>&nbsp;&nbsp;BORROWED&nbsp;&nbsp;&nbsp;&nbsp; </td>
+                  <td class="textTable">lekrfdkslkdjfdjflksjsdnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnffffffffffffffffffffffffffffffffffffffffffffffffff</td>
+            
+                  <td>12-02-2022</td>
+                </tr>
+                <tr>
+                  <td>&nbsp;&nbsp;BORROWED&nbsp;&nbsp;&nbsp;&nbsp; </td>
+                  <td class="textTable">lekrfdkslkdjfdjflksjsdnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnffffffffffffffffffffffffffffffffffffffffffffffffff</td>
+            
+                  <td>12-02-2022</td>
+                </tr>
+                <tr>
+                  <td>&nbsp;&nbsp;BORROWED&nbsp;&nbsp;&nbsp;&nbsp; </td>
+                  <td class="textTable">lekrfdkslkdjfdjflksjsdnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnffffffffffffffffffffffffffffffffffffffffffffffffff</td>
+            
+                  <td>12-02-2022</td>
+                </tr>
+
+
+              
             </div>
           </div>
         </table>

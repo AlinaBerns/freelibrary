@@ -87,4 +87,12 @@ img{
     transition: 1s; 
 }
 
+.buttonExit{
+  
+  background-image: url(/src/assets/exit.png);
+  border: none;
+
+
+}
+
 

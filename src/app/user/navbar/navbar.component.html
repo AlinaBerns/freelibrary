@@ -1,16 +1,13 @@
-
 <div class="nav">
-    <div class="openmenu">MENU</div>
-    <button *ngFor="let link of navLinks">
-        <a [routerLink]="link.route">{{ link.label }}</a>
-    </button>
-    <button (click)="toggleTheme()">Toggle Theme</button>
-    <button routerLink="/cart">CART</button>
-    <form action="" method="get">
+  <div class="openmenu">MENU</div>
+  <button *ngFor="let link of navLinks">
+      <a [routerLink]="link.route">{{ link.label }}</a>
+  </button>
+  <button (click)="toggleTheme()">Toggle Theme</button>
+  <button [routerLink]="['/cart']">CART</button>
+  <form action="" method="get">
       <input [formControl]="searchControl" type="text" placeholder="Search...">
-      </form>
-      <button style="float: right;">
-      <a (click)="logOut($event)"><img src="/assets/exit.png" alt=""/></a>
-    </button>
-    </div>
+  </form>
+  <img src="/assets/exit.png" alt="" (click)="logOut($event)" style="width: 5%;">
+</div>
 

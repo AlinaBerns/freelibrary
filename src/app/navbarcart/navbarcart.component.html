@@ -6,9 +6,7 @@
     </button>
     <button (click)="toggleTheme()">Toggle Theme</button>
     <button routerLink="">HOME</button>
-    <form action="" method="get">
-        <input type="text" placeholder="Search..." />
-      </form>
-      <a routerLink="/login"><img src="/assets/exit.png" alt=""/></a>
+    
+      <img src="/assets/exit.png" alt="" (click)="logOut($event)" style="width: 5%;">
    
     </div>
