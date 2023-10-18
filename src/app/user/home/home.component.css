@@ -58,7 +58,7 @@
   color: var(--text-color);
   transition: 1s;
   width: 27%;
-  height: 31%;
+  height: 48%;
   position: fixed;
   
 }
@@ -259,4 +259,16 @@ div.scroll {
   font-family: Kaisei Decol;
   font-size: 80%;
   width: 70%;
+}
+
+.buttonEditUser:hover{
+  background-color: var(--hover-button-color);
+  color: var(--hover-text-color);
+  border: 1px solid var(--text-color);
+}
+
+.buttonBookDes:hover{
+  background-color: var(--hover-button-color);
+  color: var(--hover-text-color);
+  border: 1px solid var(--text-color);
 }

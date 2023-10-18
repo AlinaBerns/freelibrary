@@ -1,159 +1,167 @@
 <body class="content">
-    <app-navbaraccount></app-navbaraccount>
-    <div class="container">
-      <div class="my-custom-div">
-        <div class="fixed-block">
-
-        
+  <app-navbaraccount></app-navbaraccount>
+  <div class="container">
+    <div class="my-custom-div">
+      <div class="fixed-block">
         <p class="userTextLogin">EDIT PROFILE</p>
 
-        <p class="userTextLogin" style="font-size: medium;">CHANGE USERNAME</p>
+        <p class="userTextLogin" style="font-size: medium">CHANGE USERNAME</p>
         <div>
-            <input type="text" placeholder="New username" [(ngModel)]="newUsername" (input)="onInputChange('username')" [disabled]="disableOtherFields && activeField !== 'username'"/>
-            <button class="buttonEditUser" style="margin-top: 3%; width: 15%; margin-left: 42%; " (click)="updateUserInfo()">CONFIRM</button>
+          <input
+            type="text"
+            placeholder="New username"
+            [(ngModel)]="newUsername"
+            (input)="onInputChange('username')"
+            [disabled]="disableOtherFields && activeField !== 'username'"
+          />
+          <button
+            class="buttonEditUser"
+            style="margin-top: 3%; width: 15%; margin-left: 42%"
+            (click)="updateUserInfo()"
+          >
+            CONFIRM
+          </button>
         </div>
 
-          <p class="userTextLogin" style="font-size: medium; margin-top: 3%;">CHANGE EMAIL</p>
-          <div>
-            <input type="text" placeholder="New email" [(ngModel)]="newEmail" (input)="onInputChange('email')" [disabled]="disableOtherFields && activeField !== 'email'"/>
-            <button class="buttonEditUser" style="margin-top: 3%; width: 15%; margin-left: 42%;" (click)="updateUserInfo()">CONFIRM</button>
-          </div>
-
-          <div>
-          <p class="userTextLogin" style="font-size: medium; margin-top: 3%;">CHANGE PASSWORD</p>
-          <div>
-            <input type="password" placeholder="Old password" [(ngModel)]="oldPassword" (input)="onInputChange('password')" [disabled]="disableOtherFields && activeField !== 'password'" />
-          </div>
-
-          <div>
-            <input type="password" placeholder="New password" [(ngModel)]="newPassword" (input)="onInputChange('password')" [disabled]="disableOtherFields && activeField !== 'password'"/>
-          </div>
-          
-          <div>
-            <input type="password" placeholder="Confirm your new password" [(ngModel)]="confirmPassword" (input)="onInputChange('password')" [disabled]="disableOtherFields && activeField !== 'password'"/>
-          </div>
-
-          <button class="buttonEditUser" style="margin-top: 3%; width: 15%; margin-left: 42%; " (click)="changePassword()">CONFIRM</button>
-
+        <p class="userTextLogin" style="font-size: medium; margin-top: 3%">
+          CHANGE EMAIL
+        </p>
+        <div>
+          <input
+            type="text"
+            placeholder="New email"
+            [(ngModel)]="newEmail"
+            (input)="onInputChange('email')"
+            [disabled]="disableOtherFields && activeField !== 'email'"
+          />
+          <button
+            class="buttonEditUser"
+            style="margin-top: 3%; width: 15%; margin-left: 42%"
+            (click)="updateUserInfo()"
+          >
+            CONFIRM
+          </button>
         </div>
 
-          <button class="buttonEditUser" style="margin-top: 3%; width: 15%; margin-left: 42%; background-color: darkred;" (click)="deleteAccount()">DELETE ACCOUNT</button>
-    </div>
+        <div>
+          <p class="userTextLogin" style="font-size: medium; margin-top: 3%">
+            CHANGE PASSWORD
+          </p>
+          <div>
+            <input
+              type="password"
+              placeholder="Old password"
+              [(ngModel)]="oldPassword"
+              (input)="onInputChange('password')"
+              [disabled]="disableOtherFields && activeField !== 'password'"
+            />
+          </div>
 
-         <!--REMOVE THIS ?-->
-        
-        <div class="userbox">
-          <img src="/assets/userPhotos/userPhoto1.png" alt="" class="userPhoto">
-          <p class="userTextLogin">Mr. Ben Pitt</p>
-          <p class="userTextEmail">bennypitt@gmail.com</p>
-          <button class="buttonEditUser" routerLink="">SAVE PROFILE</button>
-          <p class="userTextLogin">BORROWED BOOKS</p>
-          <table>
-            <thead>
-              <td style="width: 25%; text-align: center;">image</td>
-              <td style="width: 52%; text-align: center;">title</td>
-              <td style="width:35%; text-align: center;">date of return</td>
-            </thead>
-            <div class="my-custom-div2">
-              <div class="fixed-block"></div>
-              <div class="scroll">
-                <th style="width: 100px"></th>
-                <th style="width: 200px;"></th>
-                <th style="width: 200px;"></th>
-                
-                <tr>
-                  <td>
-                    <img src="/assets/imgBooks/book1.jpg" alt="" class="imgBorrowedBook" />
-                  </td>
-                  <td>TEST</td>
-                  <td>TEST</td>
-                  
-                </tr>
-                <tr>
-                  <td>
-                    <img src="/assets/imgBooks/book1.jpg" alt="" class="imgBorrowedBook" />
-                  </td>
-                  <td>TEST</td>
-                  <td>TEST</td>
-                  
-                </tr>
-                <tr>
-                  <td>
-                    <img src="/assets/imgBooks/book1.jpg" alt="" class="imgBorrowedBook" />
-                  </td>
-                  <td>TEST</td>
-                  <td>TEST</td>
-                  
-                </tr>
-                <tr>
-                  <td>
-                    <img src="/assets/imgBooks/book1.jpg" alt="" class="imgBorrowedBook" />
-                  </td>
-                  <td>TEST</td>
-                  <td>TEST</td>
-                  
-                </tr>
-                <tr>
-                  <td>
-                    <img src="/assets/imgBooks/book1.jpg" alt="" class="imgBorrowedBook" />
-                  </td>
-                  <td>TEST</td>
-                  <td>TEST</td>
-                  
-                </tr>
-                <tr>
-                  <td>
-                    <img src="/assets/imgBooks/book1.jpg" alt="" class="imgBorrowedBook" />
-                  </td>
-                  <td>TEST</td>
-                  <td>TEST</td>
-                  
-                </tr>
-                <tr>
-                  <td>
-                    <img src="/assets/imgBooks/book1.jpg" alt="" class="imgBorrowedBook" />
-                  </td>
-                  <td>TEST</td>
-                  <td>TEST</td>
-                  
-                </tr>
-                <tr>
-                  <td>
-                    <img src="/assets/imgBooks/book1.jpg" alt="" class="imgBorrowedBook" />
-                  </td>
-                  <td>TEST</td>
-                  <td>TEST</td>
-                  
-                </tr>
-                <tr>
-                  <td>
-                    <img src="/assets/imgBooks/book1.jpg" alt="" class="imgBorrowedBook" />
-                  </td>
-                  <td>TEST</td>
-                  <td>TEST</td>
-                  
-                </tr>
-                <tr>
-                  <td>
-                    <img src="/assets/imgBooks/book1.jpg" alt="" class="imgBorrowedBook" />
-                  </td>
-                  <td>TEST</td>
-                  <td>TEST</td>
-                  
-                </tr>
-                <tr>
-                  <td>
-                    <img src="/assets/imgBooks/book1.jpg" alt="" class="imgBorrowedBook" />
-                  </td>
-                  <td>TEST</td>
-                  <td>TEST</td>
-                  
-                </tr>
-              </div>
+          <div>
+            <input
+              type="password"
+              placeholder="New password"
+              [(ngModel)]="newPassword"
+              (input)="onInputChange('password')"
+              [disabled]="disableOtherFields && activeField !== 'password'"
+            />
+          </div>
+
+          <div>
+            <input
+              type="password"
+              placeholder="Confirm your new password"
+              [(ngModel)]="confirmPassword"
+              (input)="onInputChange('password')"
+              [disabled]="disableOtherFields && activeField !== 'password'"
+            />
+          </div>
+
+          <button
+            class="buttonEditUser"
+            style="margin-top: 3%; width: 15%; margin-left: 42%"
+            (click)="changePassword()"
+          >
+            CONFIRM
+          </button>
+        </div>
+
+        <button
+          class="buttonEditUser"
+          style="
+            margin-top: 3%;
+            width: 15%;
+            margin-left: 42%;
+            background-color: darkred;
+          "
+          (click)="deleteAccount()"
+        >
+          DELETE ACCOUNT
+        </button>
+      </div>
+
+      <!--REMOVE THIS ?-->
+
+      <div class="userbox">
+        <img src="/assets/userPhotos/userPhoto1.png" alt="" class="userPhoto" />
+        <p class="userTextLogin">Mr. Ben Pitt</p>
+        <p class="userTextEmail">bennypitt@gmail.com</p>
+        <button class="buttonEditUser" routerLink="">SAVE PROFILE</button>
+        <p class="userTextLogin">RESERVED BOOKS</p>
+        <table>
+          <thead>
+            <td style="width: 35%; text-align: center">title</td>
+            <td style="width: 25%; text-align: center">date of return</td>
+            <td style="width: 40%; text-align: center">
+              &nbsp;&nbsp;&nbsp;cancel a reservation&nbsp;&nbsp;&nbsp;
+            </td>
+          </thead>
+          <div class="my-custom-div2">
+            <div class="fixed-block"></div>
+            <div class="scroll">
+              <th style="width: 200px"></th>
+              <th style="width: 200px;"></th>
+              <th style="width: 200px;"></th>
+
+              <tr>
+                <td class="textTable">;lsdkflskdkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk</td>
+                <td>04-01-2013</td>
+                <td>
+                  <button class="buttonCancelaRes">CANCEL</button>
+                </td>
+              </tr>
+              <tr>
+                <td class="textTable">test</td>
+                <td>04-01-2013</td>
+                <td>
+                  <button class="buttonCancelaRes">CANCEL</button>
+                </td>
+              </tr>
+              <tr>
+                <td class="textTable">;lsdkflskdkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk</td>
+                <td>04-01-2013</td>
+                <td>
+                  <button class="buttonCancelaRes">CANCEL</button>
+                </td>
+              </tr>
+              <tr>
+                <td class="textTable">;lsdkflskdkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk</td>
+                <td>04-01-2013</td>
+                <td>
+                  <button class="buttonCancelaRes">CANCEL</button>
+                </td>
+              </tr>
+              <tr>
+                <td class="textTable">;lsdkflskdkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk</td>
+                <td>04-01-2013</td>
+                <td>
+                  <button class="buttonCancelaRes">CANCEL</button>
+                </td>
+              </tr>
             </div>
-          </table>
-        </div>
+          </div>
+        </table>
       </div>
     </div>
-  </body>
-  
+  </div>
+</body>

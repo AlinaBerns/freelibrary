@@ -45,7 +45,7 @@ body {
 }
 .block {
   width: 130%;
-  height: 198%;
+  height: 198vh;
   margin-left:140%;
   background: #001c1071;
   position: relative;
@@ -207,6 +207,18 @@ input::-webkit-input-placeholder {
 .loginbox:hover {
   background: rgba(0, 0, 0, 0.626);
 }
+
+button:hover{
+  background-color: var(--hover-button-color);
+  color: var(--hover-text-color);
+  
+  
+}
+
+button{
+  transition: 1s;
+}
+
 
 @keyframes ch-color {
   0% {

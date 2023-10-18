@@ -15,6 +15,9 @@ body {
   background-size: cover;
   background-attachment: fixed;
   --button-color: rgba(222, 213, 196, 0.854);
+  --hover-button-color: rgb(222, 213, 196);
+  --hover-text-color: #080808;
+  --hover-border-color:rgb(255, 255, 255);
   
 }
 .mid-theme {
@@ -37,6 +40,9 @@ body {
   --text-color: #dcdcdcea;
   --border-color: rgba(255, 255, 255, 0.637);
   --button-color: rgba(0, 0, 0, 0.744);
+  --hover-button-color: rgb(55, 55, 55);
+  --hover-text-color: #ffffff;
+  --hover-border-color:rgb(255, 255, 255);
   margin: 0%;
   padding: 0%;
   outline: none;
