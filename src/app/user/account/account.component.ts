@@ -7,6 +7,38 @@ import { UserService } from 'src/app/services/userservice/user.service';
   styleUrls: ['./account.component.css']
 })
 export class AccountComponent {
+  reservedBooks: any[] = [
+    {id: 1, 
+      title: 'ATEST', 
+      author:'Aauthor', 
+      isbn:'9132345678954',
+      dataOfReturn: '01-12-1913',
+      status: 'RESERVED'
+    },
+    {id: 2, 
+      title: 'BTESTffffffffffffffffffffffffffffffff', 
+      author:'Bauthor', 
+      isbn:'9132345678955',
+      dataOfReturn: '02-12-1913',
+      status: 'BORROWED'
+    },
+    {id: 3, 
+      title: 'CTEST', 
+      author:'Cauthor', 
+      isbn:'9132345678956',
+      dataOfReturn: '03-01-1915',
+      status: 'RESERVED'
+    },
+    {id: 4, 
+      title: 'DTEST', 
+      author:'Dauthor', 
+      isbn:'9132345678957',
+      dataOfReturn: '13-02-1915',
+      status: 'BORROWED'
+    }
+  ];
+
+  sortDirection: string = 'asc';
 
   constructor(private userService:UserService) { }
 
@@ -17,6 +49,20 @@ export class AccountComponent {
   confirmPassword: string = '';
   disableOtherFields: boolean = false;
   activeField: string = '';
+
+  sortDataByTitle() {
+    this.sortDirection = this.sortDirection === 'asc' ? 'desc' : 'asc';
+    this.reservedBooks.sort((a, b) => {
+      return this.sortDirection === 'asc' ? a.title.localeCompare(b.title) : b.title.localeCompare(a.title);
+    });
+  }
+
+  sortDataByData() {
+    this.sortDirection = this.sortDirection === 'asc' ? 'desc' : 'asc';
+    this.reservedBooks.sort((a, b) => {
+      return this.sortDirection === 'asc' ? a.dataOfReturn.localeCompare(b.dataOfReturn) : b.dataOfReturn.localeCompare(a.yearOfRel);
+    });
+  }
 
   onInputChange(field: string): void {
     this.activeField = field;

@@ -25,8 +25,41 @@ export class HomeComponent {
   username: string = '';
   email: string = '';
  
-  books: any[] = [];
-  borrowedBooks: any[] = [];
+  books: any[] = [
+    
+  ];
+  borrowedBooks: any[] = [
+    {id: 1, 
+      title: 'ATEST', 
+      author:'Aauthor', 
+      isbn:'9132345678954',
+      dataOfReturn: '01-12-1913',
+      status: 'RESERVED'
+    },
+    {id: 2, 
+      title: 'BTESTffffffffffffffffffffffffffffffff', 
+      author:'Bauthor', 
+      isbn:'9132345678955',
+      dataOfReturn: '02-12-1913',
+      status: 'BORROWED'
+    },
+    {id: 3, 
+      title: 'CTEST', 
+      author:'Cauthor', 
+      isbn:'9132345678956',
+      dataOfReturn: '03-01-1915',
+      status: 'RESERVED'
+    },
+    {id: 4, 
+      title: 'DTEST', 
+      author:'Dauthor', 
+      isbn:'9132345678957',
+      dataOfReturn: '13-02-1915',
+      status: 'BORROWED'
+    }
+  ];
+
+  sortDirection: string = 'asc';
 
   constructor(private themeService: ThemeService, 
     private authService:AuthService,
@@ -36,7 +69,25 @@ export class HomeComponent {
     private cartService:CartService,
     private userService:UserService,
     public dialog: MatDialog) {}
+    
+    sortDataByTitle() {
+      this.sortDirection = this.sortDirection === 'asc' ? 'desc' : 'asc';
+      this.borrowedBooks.sort((a, b) => {
+        return this.sortDirection === 'asc' ? a.title.localeCompare(b.title) : b.title.localeCompare(a.title);
+      });
+    }
 
+    sortDataByData() {
+      this.sortDirection = this.sortDirection === 'asc' ? 'desc' : 'asc';
+      this.borrowedBooks.sort((a, b) => {
+        return this.sortDirection === 'asc' ? a.dataOfReturn.localeCompare(b.dataOfReturn) : b.dataOfReturn.localeCompare(a.yearOfRel);
+      });
+    }
+
+    sortDataByStatus() {
+      this.sortDirection = this.sortDirection === 'asc' ? 'desc' : 'asc';
+      this.borrowedBooks.sort((a, b) => {
+        return this.sortDirection === 'asc' ? a.status.localeCompare(b.status) : b.status.localeCompare(a.status);
   
     openDescriptionDialog(book:any): void {
       const dialogRef = this.dialog.open(BookDescriptionDialogComponent, {

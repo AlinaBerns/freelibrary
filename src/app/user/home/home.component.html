@@ -40,10 +40,19 @@
         <button class="buttonEditUser" routerLink="/account">EDIT PROFILE</button>
         <p class="userTextLogin">YOUR BOOKS</p>
         <table>
-          <thead>
-            <td style="width: 25%; text-align: center;">status</td>
-            <td style="width: 52%; text-align: center;">title</td>
-            <td style="width:35%; text-align: center;">date of return</td>
+          <thead >
+            <td (click)="sortDataByStatus()" 
+            [class.sorted-asc]="sortDirection === 'asc'" 
+            [class.sorted-desc]="sortDirection === 'desc'" 
+            style="width: 25%; text-align: center;">status</td>
+            <td (click)="sortDataByTitle()" 
+            [class.sorted-asc]="sortDirection === 'asc'" 
+            [class.sorted-desc]="sortDirection === 'desc'" 
+            style="width: 52%; text-align: center;">title</td>
+            <td (click)="sortDataByData()" 
+            [class.sorted-asc]="sortDirection === 'asc'" 
+            [class.sorted-desc]="sortDirection === 'desc'" 
+            style="width:35%; text-align: center;">return book</td>
           </thead>
           <div class="my-custom-div2">
             <div class="fixed-block"></div>
@@ -54,41 +63,12 @@
               
               <tr *ngFor="let book of borrowedBooks" >
                 <td>
-                  <img src="/assets/imgBooks/book1.jpg" alt="" class="imgBorrowedBook" />
+                  &nbsp;&nbsp;{{book.status}}&nbsp;&nbsp;&nbsp;&nbsp;
                 </td>
-                <td>{{book.book.title}}</td>
-                <td>{{book.dateOfReturn}}</td>
+                <td class="textTable">{{book.title}}</td>
+                <td>{{book.dataOfReturn}}</td>
               </tr>
-                <tr>
-                  <td>&nbsp;&nbsp;RESERVED&nbsp;&nbsp;&nbsp;&nbsp; </td>
-                  <td class="textTable">lekrfdkslkdjfdjflksjsdnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnffffffffffffffffffffffffffffffffffffffffffffffffff</td>
-            
-                  <td>12-02-2022</td>
-                </tr>
-                <tr>
-                  <td>&nbsp;&nbsp;BORROWED&nbsp;&nbsp;&nbsp;&nbsp; </td>
-                  <td class="textTable">lekrfdkslkdjfdjflksjsdnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnffffffffffffffffffffffffffffffffffffffffffffffffff</td>
-            
-                  <td>12-02-2022</td>
-                </tr>
-                <tr>
-                  <td>&nbsp;&nbsp;BORROWED&nbsp;&nbsp;&nbsp;&nbsp; </td>
-                  <td class="textTable">lekrfdkslkdjfdjflksjsdnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnffffffffffffffffffffffffffffffffffffffffffffffffff</td>
-            
-                  <td>12-02-2022</td>
-                </tr>
-                <tr>
-                  <td>&nbsp;&nbsp;BORROWED&nbsp;&nbsp;&nbsp;&nbsp; </td>
-                  <td class="textTable">lekrfdkslkdjfdjflksjsdnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnffffffffffffffffffffffffffffffffffffffffffffffffff</td>
-            
-                  <td>12-02-2022</td>
-                </tr>
-                <tr>
-                  <td>&nbsp;&nbsp;BORROWED&nbsp;&nbsp;&nbsp;&nbsp; </td>
-                  <td class="textTable">lekrfdkslkdjfdjflksjsdnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnffffffffffffffffffffffffffffffffffffffffffffffffff</td>
-            
-                  <td>12-02-2022</td>
-                </tr>
+
             </div>
           </div>
         </table>

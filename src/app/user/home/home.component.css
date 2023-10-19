@@ -30,6 +30,19 @@
   height: 100%;
   width: 100%;
   animation: ani 2.5s forwards;
+  
+}
+th {
+  cursor: pointer;
+  user-select: none;
+}
+
+.sorted-asc::after {
+  content: ' ↑';
+}
+
+.sorted-desc::after {
+  content: ' ↓';
 }
 
 :root {
@@ -263,4 +276,16 @@ div.scroll {
   font-family: Kaisei Decol;
   font-size: 80%;
   width: 70%;
+}
+
+.buttonEditUser:hover{
+  background-color: var(--hover-button-color);
+  color: var(--hover-text-color);
+  border: 1px solid var(--text-color);
+}
+
+.buttonBookDes:hover{
+  background-color: var(--hover-button-color);
+  color: var(--hover-text-color);
+  border: 1px solid var(--text-color);
 }
