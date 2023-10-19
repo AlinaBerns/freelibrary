@@ -1,1 +1,91 @@
-<p>adminhome works!</p>
+<body class="content">
+  <app-navbaradmin></app-navbaradmin>
+  <div class="container">
+    <button class="buttonCart" style="position: fixed">ADD BOOK</button>
+    <table class="table">
+      <!-- head -->
+
+      
+
+      <thead>
+        <tr>
+          <th style="width: 30px">ID</th>
+          <th style="width: 100px">IMAGE</th>
+          <th style="width: 300px"
+          (click)="sortDataByTitle()" 
+            [class.sorted-asc]="sortDirection === 'asc'" 
+            [class.sorted-desc]="sortDirection === 'desc'">TITLE</th>
+          <th style="width: 300px"
+          (click)="sortDataByAuthor()" 
+            [class.sorted-asc]="sortDirection === 'asc'" 
+            [class.sorted-desc]="sortDirection === 'desc'">AUTHOR</th>
+          <th style="width: 200px"
+          (click)="sortDataByIsbn()" 
+            [class.sorted-asc]="sortDirection === 'asc'" 
+            [class.sorted-desc]="sortDirection === 'desc'">ISBN</th>
+          <th style="width: 200px"
+          (click)="sortDataByYear()" 
+            [class.sorted-asc]="sortDirection === 'asc'" 
+            [class.sorted-desc]="sortDirection === 'desc'">YEAR</th>
+          <th style="width: 200px">EDIT</th>
+        </tr>
+      </thead>
+      <div class="container0">
+        <div class="fixed-block"></div>
+        <div class="scroll">
+          <tbody>
+            <tr>
+              <th style="width: 30px"></th>
+              <th style="width: 100px"></th>
+              <th style="width: 400px"></th>
+              <th style="width: 400px"></th>
+              <th style="width: 400px"></th>
+              <th style="width: 300px"></th>
+              <th style="width: 200px"></th>
+              <th style="width:5px"></th>
+            </tr>
+            <!-- row 1 -->
+            <tr *ngFor="let book of books">
+              <td>{{book.id}}</td>
+              <td>
+                <img src="/assets/imgBooks/book1.jpg" alt="" class="imgBook" />
+              </td>
+              <td>
+                {{book.title}}
+              </td>
+              <td class="textTable">{{book.title}}</td>
+              <td>{{book.isbn}}</td>
+              <td>{{book.year}}</td>
+
+              <td>
+                <button class="buttonBook2" routerLink="/updatebook">
+                  EDIT
+                </button>
+              </td>
+              <td></td>
+              
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>
+                  <img src="/assets/imgBooks/book1.jpg" alt="" class="imgBook" />
+                </td>
+                <td>"Revival"</td>
+                <td>Stephen King</td>
+                <td>9780446310789</td>
+                <td>2014</td>
+  
+                <td>
+                  <button class="buttonBook2" routerLink="/updatebook">
+                    EDIT
+                  </button>
+                </td>
+                <td></td>
+                
+              </tr>
+          </tbody>
+        </div>
+      </div>
+    </table>
+  </div>
+</body>

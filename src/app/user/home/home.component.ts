@@ -77,7 +77,7 @@ export class HomeComponent {
     sortDataByData() {
       this.sortDirection = this.sortDirection === 'asc' ? 'desc' : 'asc';
       this.borrowedBooks.sort((a, b) => {
-        return this.sortDirection === 'asc' ? a.dataOfReturn.localeCompare(b.dataOfReturn) : b.dataOfReturn.localeCompare(a.yearOfRel);
+        return this.sortDirection === 'asc' ? a.dataOfReturn.localeCompare(b.dataOfReturn) : b.dataOfReturn.localeCompare(a.dataOfReturn);
       });
     }
 

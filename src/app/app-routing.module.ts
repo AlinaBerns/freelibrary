@@ -6,6 +6,7 @@ import { CartComponent } from './user/cart/cart.component';
 import { LoginComponent } from './login/login.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { authGuard } from './services/security/auth.guard';
+import { AdminhomeComponent } from './admin/adminhome/adminhome.component';
 
 const routes: Routes = [
   {path: '', component:HomeComponent, canActivate: [authGuard], data: { allowedRoles: ['ROLE_USER'] } },
@@ -13,6 +14,7 @@ const routes: Routes = [
   {path: 'cart', component:CartComponent,  canActivate: [authGuard], data: { allowedRoles: ['ROLE_USER'] }}, 
   {path:'login', component:LoginComponent, canActivate: [authGuard]},
   {path:'registration', component:RegistrationComponent, canActivate: [authGuard]},
+  {path:'adminhome', component:AdminhomeComponent}
 ];
 
 @NgModule({

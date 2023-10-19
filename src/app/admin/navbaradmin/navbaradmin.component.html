@@ -1,1 +1,13 @@
-<p>navbaradmin works!</p>
+<div class="nav">
+    <div class="openmenu">MENU</div>
+    <button *ngFor="let link of navLinks">
+        <a [routerLink]="link.route">{{ link.label }}</a>
+    </button>
+    <button (click)="toggleTheme()">Toggle Theme</button>
+    <button routerLink="/adminhome">BOOKS</button>
+    <button routerLink="/adminhome">USERS</button>
+    <form action="" method="get">
+        <input [formControl]="searchControl" type="text" placeholder="Search...">
+    </form>
+    <button class="buttonExit" (click)="logOut($event)">LOG OFF</button>
+    </div>
