@@ -9,7 +9,7 @@ import { authGuard } from './services/security/auth.guard';
 
 const routes: Routes = [
   {path: '', component:HomeComponent, canActivate: [authGuard], data: { allowedRoles: ['ROLE_USER'] } },
-  {path: 'account', component:AccountComponent,  canActivate: [authGuard], data: { allowedRoles: ['ROLE_USER'] }},
+  {path: 'account', component:AccountComponent, canActivate: [authGuard], data: { allowedRoles: ['ROLE_USER'] }},
   {path: 'cart', component:CartComponent,  canActivate: [authGuard], data: { allowedRoles: ['ROLE_USER'] }}, 
   {path:'login', component:LoginComponent, canActivate: [authGuard]},
   {path:'registration', component:RegistrationComponent, canActivate: [authGuard]},

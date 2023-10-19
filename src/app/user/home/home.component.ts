@@ -10,6 +10,8 @@ import { SearchService } from 'src/app/services/searchservice/search.service';
 import { BorrowedbookService } from 'src/app/services/borrowedbookservice/borrowedbook.service';
 import { CartService } from 'src/app/services/cartservice/cart.service';
 import { UserService } from 'src/app/services/userservice/user.service';
+import { MatDialog } from '@angular/material/dialog';
+import { BookDescriptionDialogComponent } from 'src/app/description/book-description-dialog/book-description-dialog.component';
 
 @Component({
   selector: 'app-home',
@@ -65,7 +67,8 @@ export class HomeComponent {
     private searchService:SearchService,
     private borrowedBookService: BorrowedbookService,
     private cartService:CartService,
-    private userService:UserService) {}
+    private userService:UserService,
+    public dialog: MatDialog) {}
     
     sortDataByTitle() {
       this.sortDirection = this.sortDirection === 'asc' ? 'desc' : 'asc';
@@ -85,6 +88,10 @@ export class HomeComponent {
       this.sortDirection = this.sortDirection === 'asc' ? 'desc' : 'asc';
       this.borrowedBooks.sort((a, b) => {
         return this.sortDirection === 'asc' ? a.status.localeCompare(b.status) : b.status.localeCompare(a.status);
+  
+    openDescriptionDialog(book:any): void {
+      const dialogRef = this.dialog.open(BookDescriptionDialogComponent, {
+        data: { title: book.title, description: book.description }
       });
     }
 

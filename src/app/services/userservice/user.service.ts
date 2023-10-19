@@ -18,6 +18,7 @@ export class UserService {
       if (response.data) {
 
         const user = {
+          id: response.data.id,
           username: response.data.username,
           email: response.data.email
         }
