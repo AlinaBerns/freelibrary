@@ -253,6 +253,23 @@ button:hover{
 .buttonCancelaRes{
   width: 50%;
   height: 3%;
+  background-color: var(--button-color);
+  color: var(--text-color);
+  transition: 1s;
+  border: 1px solid var(--text-color);
+  font-family: Kaisei Decol;
+}
+th {
+  cursor: pointer;
+  user-select: none;
+}
+
+.sorted-asc::after {
+  content: ' ↑';
+}
+
+.sorted-desc::after {
+  content: ' ↓';
 }
 .buttonCancelaRes:hover{
   background-color: var(--hover-button-color);

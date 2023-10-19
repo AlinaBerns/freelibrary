@@ -110,8 +110,12 @@
         <p class="userTextLogin">RESERVED BOOKS</p>
         <table>
           <thead>
-            <td style="width: 35%; text-align: center">title</td>
-            <td style="width: 25%; text-align: center">date of return</td>
+            <td (click)="sortDataByTitle()" 
+            [class.sorted-asc]="sortDirection === 'asc'" 
+            [class.sorted-desc]="sortDirection === 'desc'" style="width: 35%; text-align: center">title</td>
+            <td (click)="sortDataByData()" 
+            [class.sorted-asc]="sortDirection === 'asc'" 
+            [class.sorted-desc]="sortDirection === 'desc'" style="width: 25%; text-align: center">return book</td>
             <td style="width: 40%; text-align: center">
               &nbsp;&nbsp;&nbsp;cancel a reservation&nbsp;&nbsp;&nbsp;
             </td>
@@ -123,37 +127,9 @@
               <th style="width: 200px;"></th>
               <th style="width: 200px;"></th>
 
-              <tr>
-                <td class="textTable">;lsdkflskdkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk</td>
-                <td>04-01-2013</td>
-                <td>
-                  <button class="buttonCancelaRes">CANCEL</button>
-                </td>
-              </tr>
-              <tr>
-                <td class="textTable">test</td>
-                <td>04-01-2013</td>
-                <td>
-                  <button class="buttonCancelaRes">CANCEL</button>
-                </td>
-              </tr>
-              <tr>
-                <td class="textTable">;lsdkflskdkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk</td>
-                <td>04-01-2013</td>
-                <td>
-                  <button class="buttonCancelaRes">CANCEL</button>
-                </td>
-              </tr>
-              <tr>
-                <td class="textTable">;lsdkflskdkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk</td>
-                <td>04-01-2013</td>
-                <td>
-                  <button class="buttonCancelaRes">CANCEL</button>
-                </td>
-              </tr>
-              <tr>
-                <td class="textTable">;lsdkflskdkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk</td>
-                <td>04-01-2013</td>
+              <tr *ngFor="let book of reservedBooks" >
+                <td class="textTable">{{book.title}}</td>
+                <td>{{book.dataOfReturn}}</td>
                 <td>
                   <button class="buttonCancelaRes">CANCEL</button>
                 </td>
