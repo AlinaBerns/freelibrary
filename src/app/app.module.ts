@@ -14,9 +14,13 @@ import { NavbaraccountComponent } from './navbaraccount/navbaraccount.component'
 import { NavbarcartComponent } from './navbarcart/navbarcart.component';
 import { LoginComponent } from './login/login.component';
 import { RegistrationComponent } from './registration/registration.component';
+import { AdminhomeComponent } from './admin/adminhome/adminhome.component';
+import { NavbaradminComponent } from './admin/navbaradmin/navbaradmin.component';
+import { UsersComponent } from './admin/users/users.component';
 import { BookDescriptionDialogComponent } from './description/book-description-dialog/book-description-dialog.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDialogModule } from '@angular/material/dialog';
+
 
 
 @NgModule({
@@ -28,7 +32,8 @@ import { MatDialogModule } from '@angular/material/dialog';
     NavbaraccountComponent, 
     NavbarcartComponent, 
     LoginComponent, 
-    RegistrationComponent, BookDescriptionDialogComponent],
+    RegistrationComponent, AdminhomeComponent, NavbaradminComponent, UsersComponent, BookDescriptionDialogComponent],
+
   imports: [BrowserModule, 
     AppRoutingModule,
   FormsModule,
