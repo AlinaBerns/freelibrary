@@ -14,6 +14,9 @@ import { NavbaraccountComponent } from './navbaraccount/navbaraccount.component'
 import { NavbarcartComponent } from './navbarcart/navbarcart.component';
 import { LoginComponent } from './login/login.component';
 import { RegistrationComponent } from './registration/registration.component';
+import { BookDescriptionDialogComponent } from './description/book-description-dialog/book-description-dialog.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatDialogModule } from '@angular/material/dialog';
 
 
 @NgModule({
@@ -25,11 +28,13 @@ import { RegistrationComponent } from './registration/registration.component';
     NavbaraccountComponent, 
     NavbarcartComponent, 
     LoginComponent, 
-    RegistrationComponent],
+    RegistrationComponent, BookDescriptionDialogComponent],
   imports: [BrowserModule, 
     AppRoutingModule,
   FormsModule,
-  ReactiveFormsModule],
+  ReactiveFormsModule,
+  BrowserAnimationsModule,
+  MatDialogModule],
   providers: [ThemeService],
   bootstrap: [AppComponent],
 })

@@ -6,6 +6,10 @@
   color: orange;
 }
 
+.status-borrowed {
+  color: orangered;
+}
+
 .status-unavailable {
   color: rgb(112, 13, 13);
 }
@@ -58,7 +62,7 @@
   color: var(--text-color);
   transition: 1s;
   width: 27%;
-  height: 31%;
+  height: 40%;
   position: fixed;
   
 }
