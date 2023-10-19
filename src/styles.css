@@ -23,7 +23,6 @@ body {
   --text-color: #080808d8;
   --border-color: rgba(255, 255, 255, 0.578);
   background-image: url(assets/background_img4.jpg);
-  background-size: cover;
   background-attachment: fixed;
   --button-color: rgba(222, 213, 196, 0.854);
   
@@ -37,6 +36,7 @@ body {
   --text-color: #dcdcdcea;
   --border-color: rgba(255, 255, 255, 0.637);
   --button-color: rgba(0, 0, 0, 0.744);
+  height: 120%;
   margin: 0%;
   padding: 0%;
   outline: none;
@@ -44,3 +44,6 @@ body {
   left: 0;
   right: 0;
 }
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
