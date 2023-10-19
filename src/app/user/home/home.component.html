@@ -63,10 +63,10 @@
               
               <tr *ngFor="let book of borrowedBooks" >
                 <td>
-                  &nbsp;&nbsp;{{book.status}}&nbsp;&nbsp;&nbsp;&nbsp;
+                  &nbsp;&nbsp;{{book.book.status}}&nbsp;&nbsp;&nbsp;&nbsp;
                 </td>
-                <td class="textTable">{{book.title}}</td>
-                <td>{{book.dataOfReturn}}</td>
+                <td class="textTable">{{book.book.title}}</td>
+                <td>{{book.dateOfReturn}}</td>
               </tr>
 
             </div>

@@ -105,10 +105,10 @@
 
       <div class="userbox">
         <img src="/assets/userPhotos/userPhoto1.png" alt="" class="userPhoto" />
-        <p class="userTextLogin">Mr. Ben Pitt</p>
-        <p class="userTextEmail">bennypitt@gmail.com</p>
+        <p class="userTextLogin">{{username}}</p>
+        <p class="userTextEmail">{{email}}</p>
         <button class="buttonEditUser" routerLink="">SAVE PROFILE</button>
-        <p class="userTextLogin">RESERVED BOOKS</p>
+        <p class="userTextLogin">YOUR BOOKS</p>
         <table>
           <thead>
             <td (click)="sortDataByTitle()" 
@@ -129,10 +129,11 @@
               <th style="width: 200px;"></th>
 
               <tr *ngFor="let book of reservedBooks" >
-                <td class="textTable">{{book.title}}</td>
-                <td>{{book.dataOfReturn}}</td>
+                <td class="textTable">{{book.book.title}}</td>
+                <td>{{book.dateOfReturn}}</td>
                 <td>
-                  <button class="buttonCancelaRes">CANCEL</button>
+                  <button class="buttonCancelaRes" 
+                  (click)="returnBook(book.book.id)">cancel</button>
                 </td>
               </tr>
             </div>
