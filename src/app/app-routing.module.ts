@@ -11,7 +11,7 @@ import { UsersComponent } from './admin/users/users.component';
 
 const routes: Routes = [
   {path: '', component:HomeComponent, canActivate: [authGuard], data: { allowedRoles: ['ROLE_USER'] } },
-  {path: 'account', component:AccountComponent,  canActivate: [authGuard], data: { allowedRoles: ['ROLE_USER'] }},
+  {path: 'account', component:AccountComponent, canActivate: [authGuard], data: { allowedRoles: ['ROLE_USER'] }},
   {path: 'cart', component:CartComponent,  canActivate: [authGuard], data: { allowedRoles: ['ROLE_USER'] }}, 
   {path:'login', component:LoginComponent, canActivate: [authGuard]},
   {path:'registration', component:RegistrationComponent, canActivate: [authGuard]},
@@ -23,4 +23,4 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

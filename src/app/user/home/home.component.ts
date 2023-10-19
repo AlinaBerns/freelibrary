@@ -10,6 +10,8 @@ import { SearchService } from 'src/app/services/searchservice/search.service';
 import { BorrowedbookService } from 'src/app/services/borrowedbookservice/borrowedbook.service';
 import { CartService } from 'src/app/services/cartservice/cart.service';
 import { UserService } from 'src/app/services/userservice/user.service';
+import { MatDialog } from '@angular/material/dialog';
+import { BookDescriptionDialogComponent } from 'src/app/description/book-description-dialog/book-description-dialog.component';
 
 @Component({
   selector: 'app-home',
@@ -26,36 +28,7 @@ export class HomeComponent {
   books: any[] = [
     
   ];
-  borrowedBooks: any[] = [
-    {id: 1, 
-      title: 'ATEST', 
-      author:'Aauthor', 
-      isbn:'9132345678954',
-      dataOfReturn: '01-12-1913',
-      status: 'RESERVED'
-    },
-    {id: 2, 
-      title: 'BTESTffffffffffffffffffffffffffffffff', 
-      author:'Bauthor', 
-      isbn:'9132345678955',
-      dataOfReturn: '02-12-1913',
-      status: 'BORROWED'
-    },
-    {id: 3, 
-      title: 'CTEST', 
-      author:'Cauthor', 
-      isbn:'9132345678956',
-      dataOfReturn: '03-01-1915',
-      status: 'RESERVED'
-    },
-    {id: 4, 
-      title: 'DTEST', 
-      author:'Dauthor', 
-      isbn:'9132345678957',
-      dataOfReturn: '13-02-1915',
-      status: 'BORROWED'
-    }
-  ];
+  borrowedBooks: any[] = [];
 
   sortDirection: string = 'asc';
 
@@ -65,7 +38,8 @@ export class HomeComponent {
     private searchService:SearchService,
     private borrowedBookService: BorrowedbookService,
     private cartService:CartService,
-    private userService:UserService) {}
+    private userService:UserService,
+    public dialog: MatDialog) {}
     
     sortDataByTitle() {
       this.sortDirection = this.sortDirection === 'asc' ? 'desc' : 'asc';
@@ -84,7 +58,13 @@ export class HomeComponent {
     sortDataByStatus() {
       this.sortDirection = this.sortDirection === 'asc' ? 'desc' : 'asc';
       this.borrowedBooks.sort((a, b) => {
-        return this.sortDirection === 'asc' ? a.status.localeCompare(b.status) : b.status.localeCompare(a.status);
+        return this.sortDirection === 'asc' ? a.status.localeCompare(b.status) : b.status.localeCompare(a.status);});}
+        
+  
+    openDescriptionDialog(book:any): void {
+      const dialogRef = this.dialog.open(BookDescriptionDialogComponent, {
+        // data: { title: book.title, description: book.description }
+        data: { title: book.title, description:book.description }
       });
     }
 
@@ -145,7 +125,7 @@ export class HomeComponent {
   getBorrowedBooks() {
     this.borrowedBookService.getActiveBorrowedBooks().then(data => {
       this.borrowedBooks = data;
-      console.log('Books: ', this.books);
+      console.log('Borrowed Books: ', this.borrowedBooks);
     }).catch(error => {
       console.error('There was an error!', error);
     });
@@ -192,3 +172,4 @@ export class HomeComponent {
   
   
 }
+

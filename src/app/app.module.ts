@@ -17,6 +17,10 @@ import { RegistrationComponent } from './registration/registration.component';
 import { AdminhomeComponent } from './admin/adminhome/adminhome.component';
 import { NavbaradminComponent } from './admin/navbaradmin/navbaradmin.component';
 import { UsersComponent } from './admin/users/users.component';
+import { BookDescriptionDialogComponent } from './description/book-description-dialog/book-description-dialog.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatDialogModule } from '@angular/material/dialog';
+
 
 
 @NgModule({
@@ -28,11 +32,14 @@ import { UsersComponent } from './admin/users/users.component';
     NavbaraccountComponent, 
     NavbarcartComponent, 
     LoginComponent, 
-    RegistrationComponent, AdminhomeComponent, NavbaradminComponent, UsersComponent],
+    RegistrationComponent, AdminhomeComponent, NavbaradminComponent, UsersComponent, BookDescriptionDialogComponent],
+
   imports: [BrowserModule, 
     AppRoutingModule,
   FormsModule,
-  ReactiveFormsModule],
+  ReactiveFormsModule,
+  BrowserAnimationsModule,
+  MatDialogModule],
   providers: [ThemeService],
   bootstrap: [AppComponent],
 })

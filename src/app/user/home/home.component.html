@@ -11,7 +11,8 @@
           <span [ngClass]="{
             'status-available': book.status === 'AVAILABLE',
             'status-reserved': book.status === 'RESERVED',
-            'status-unavailable': book.status === 'UNAVAILABLE'
+            'status-unavailable': book.status === 'UNAVAILABLE',
+            'status-borrowed': book.status === 'BORROWED'
           }" >{{book.status}}</span>
           <div class="img__description">
             <div>
@@ -20,7 +21,7 @@
               </p>
             </div>
             <div>
-              <button class="buttonBookDes">description</button>
+              <button class="buttonBookDes" (click)="openDescriptionDialog(book)">description</button>
             </div>
             <div>
               <button class="buttonBookDes" *ngIf="book.status === 'AVAILABLE' && cartItemCount < 5 && !bookIsInCart(book)" (click)="addToCart(book)">ADD TO CART</button>
@@ -62,11 +63,12 @@
               
               <tr *ngFor="let book of borrowedBooks" >
                 <td>
-                  &nbsp;&nbsp;{{book.status}}&nbsp;&nbsp;&nbsp;&nbsp;
+                  &nbsp;&nbsp;{{book.book.status}}&nbsp;&nbsp;&nbsp;&nbsp;
                 </td>
-                <td class="textTable">{{book.title}}</td>
-                <td>{{book.dataOfReturn}}</td>
+                <td class="textTable">{{book.book.title}}</td>
+                <td>{{book.dateOfReturn}}</td>
               </tr>
+
             </div>
           </div>
         </table>
