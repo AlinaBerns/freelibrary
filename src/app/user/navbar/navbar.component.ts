@@ -48,6 +48,4 @@ export class NavbarComponent implements OnInit{
     event.stopPropagation();
     this.authService.logOut();
   }
-
-
 }
