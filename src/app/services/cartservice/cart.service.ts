@@ -71,6 +71,10 @@ export class CartService {
     
     const bookIds = this.cart.map(item => item.id);  // Create an array of book ids
 
+
+    console.log(bookIds);
+    
+
     for (const bookId of bookIds) {
       
       BorrowBookRequest.bookId = bookId;

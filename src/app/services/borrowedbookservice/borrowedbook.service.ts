@@ -38,4 +38,21 @@ export class BorrowedbookService {
        return Promise.reject(error);
     }
   }
+
+
+  returnBook(bookId: number): void {
+
+    const bookIds: number[] = [];
+
+    bookIds.push(bookId);
+
+    console.log("these are the book id's " + bookIds);
+    
+
+
+    // Make a POST request to the return book endpoint
+    axios.post('http://localhost:8080/api/borrow/returnbooks?userId=' + this.util.getDecodedToken().id, bookIds, this.util.getConfig());
+  }
+
+
 }

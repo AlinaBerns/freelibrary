@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { BorrowedbookService } from 'src/app/services/borrowedbookservice/borrowedbook.service';
 import { UserService } from 'src/app/services/userservice/user.service';
 
 @Component({
@@ -7,40 +8,15 @@ import { UserService } from 'src/app/services/userservice/user.service';
   styleUrls: ['./account.component.css']
 })
 export class AccountComponent {
-  reservedBooks: any[] = [
-    {id: 1, 
-      title: 'ATEST', 
-      author:'Aauthor', 
-      isbn:'9132345678954',
-      dataOfReturn: '01-12-1913',
-      status: 'RESERVED'
-    },
-    {id: 2, 
-      title: 'BTESTffffffffffffffffffffffffffffffff', 
-      author:'Bauthor', 
-      isbn:'9132345678955',
-      dataOfReturn: '02-12-1913',
-      status: 'BORROWED'
-    },
-    {id: 3, 
-      title: 'CTEST', 
-      author:'Cauthor', 
-      isbn:'9132345678956',
-      dataOfReturn: '03-01-1915',
-      status: 'RESERVED'
-    },
-    {id: 4, 
-      title: 'DTEST', 
-      author:'Dauthor', 
-      isbn:'9132345678957',
-      dataOfReturn: '13-02-1915',
-      status: 'BORROWED'
-    }
-  ];
+  reservedBooks: any[] = [];
 
   sortDirection: string = 'asc';
 
-  constructor(private userService:UserService) { }
+  constructor(private userService:UserService, 
+    private borrowedBookService: BorrowedbookService) { }
+
+  username: string = '';
+  email: string = '';
 
   newUsername: string = '';
   newEmail: string = '';
@@ -49,6 +25,11 @@ export class AccountComponent {
   confirmPassword: string = '';
   disableOtherFields: boolean = false;
   activeField: string = '';
+
+  ngOnInit(): void {
+    this.getAllBorrwowedBooks();
+    this.getUserInfo();
+  }
 
   sortDataByTitle() {
     this.sortDirection = this.sortDirection === 'asc' ? 'desc' : 'asc';
@@ -69,6 +50,20 @@ export class AccountComponent {
     this.disableOtherFields = !!this.newUsername || !!this.newEmail || (field === 'password' && (!!this.oldPassword || !!this.newPassword || !!this.confirmPassword));
   }
 
+  returnBook(bookId: number): void {
+    this.borrowedBookService.returnBook(bookId);
+    this.getAllBorrwowedBooks();
+  }
+
+  getAllBorrwowedBooks(): void {
+    this.borrowedBookService.getActiveBorrowedBooks().then(data => {
+      this.reservedBooks = data;
+      console.log('Borrowed Books: ', this.reservedBooks);
+    }).catch(error => {
+      console.error('There was an error!', error);
+    });
+  }
+
   changePassword(): void {
     // Make a PUT request to the change password endpoint
     
@@ -80,6 +75,16 @@ export class AccountComponent {
         this.userService.updateUserInfo(user);
       }
     })
+  }
+
+  getUserInfo(): void {
+    this.userService.getUserInfo()
+      .then(data => {
+      this.username = data.username;
+      this.email = data.email;
+    }).catch(error => { 
+      console.error('There was an error!', error);
+    });
   }
 
   updateUserInfo(): void {

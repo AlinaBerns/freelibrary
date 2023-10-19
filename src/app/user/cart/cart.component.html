@@ -15,22 +15,12 @@
 
           <tr id="{{book.id}}" *ngFor="let book of cartService.items">
             <th>
-              <img src="/assets/imgBooks/book1.jpg" alt="" class="imgBook" />
+              <img src="/assets/imgBooks/book{{book.id}}.jpg" alt="" class="imgBook" />
             </th>
             <th>{{book.title}}</th>
             <th>{{book.author.name}}</th>
             <th>{{book.isbn}}</th>
             <th style="width: 5%">
-              <div>
-                <input
-                  id="highload0"
-                  class="checkbox-custom"
-                  name="highload0"
-                  type="checkbox"
-                  style="height: 20px; width: 20px"
-                />
-                <label for="highload0" class="checkbox-custom-label"></label>
-              </div>
             </th>
             <th>
               <button (click)="removeBookFromCart(book.id)" class="buttonCart" style="width: 80%">Remove</button>
