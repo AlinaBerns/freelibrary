@@ -16,6 +16,7 @@ import { LoginComponent } from './login/login.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { AdminhomeComponent } from './admin/adminhome/adminhome.component';
 import { NavbaradminComponent } from './admin/navbaradmin/navbaradmin.component';
+import { UsersComponent } from './admin/users/users.component';
 
 
 @NgModule({
@@ -27,7 +28,7 @@ import { NavbaradminComponent } from './admin/navbaradmin/navbaradmin.component'
     NavbaraccountComponent, 
     NavbarcartComponent, 
     LoginComponent, 
-    RegistrationComponent, AdminhomeComponent, NavbaradminComponent],
+    RegistrationComponent, AdminhomeComponent, NavbaradminComponent, UsersComponent],
   imports: [BrowserModule, 
     AppRoutingModule,
   FormsModule,
