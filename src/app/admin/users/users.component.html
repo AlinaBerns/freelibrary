@@ -1,1 +1,55 @@
-<p>users works!</p>
+<body class="content">
+  <app-navbaradmin></app-navbaradmin>
+  <div class="container">
+    <table class="table">
+      <thead>
+        <tr>
+          <th (click)="sortDataById()" 
+          [class.sorted-asc]="sortDirection === 'asc'" 
+          [class.sorted-desc]="sortDirection === 'desc'" 
+          style="width: 30px">ID</th>
+          <th style="width: 100px">PHOTO</th>
+          <th style="width: 250px"
+          (click)="sortDataByUsername()" 
+          [class.sorted-asc]="sortDirection === 'asc'" 
+          [class.sorted-desc]="sortDirection === 'desc'">USERNAME</th>
+          <th style="width: 200px"
+          (click)="sortDataByEmail()" 
+          [class.sorted-asc]="sortDirection === 'asc'" 
+          [class.sorted-desc]="sortDirection === 'desc'">EMAIL</th>
+          <th style="width: 120px">VIEW</th>
+          <th style="width: 120px">DELETE</th>
+        </tr>
+      </thead>
+      <div class="container0">
+        <div class="fixed-block"></div>
+        <div class="scroll">
+          <tbody>
+            <tr>
+              <th style="width: 30px"></th>
+              <th style="width: 250px"></th>
+              <th style="width: 350px"></th>
+              <th style="width: 350px"></th>
+              <th style="width: 200px"></th>
+              <th style="width: 200px"></th>
+            </tr>
+            <tr *ngFor="let user of users">
+              <td>{{user.id}}</td>
+              <td>
+                <img
+                  src="/assets/userPhotos/userPhoto1.png"
+                  alt=""
+                  class="imgUser"
+                />
+              </td>
+              <td class="textTable">{{user.username}}</td>
+              <td class="textTable">{{user.email}}</td>
+              <td><button class="buttonBook2">VIEW</button></td>
+              <td><button class="buttonBook1">DELETE</button></td>
+            </tr>
+          </tbody>
+        </div>
+      </div>
+    </table>
+  </div>
+</body>

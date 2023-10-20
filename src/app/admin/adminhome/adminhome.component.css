@@ -326,5 +326,23 @@
   .sorted-desc::after {
     content: ' ↓';
   }
+
+  .textTable{
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    word-break: break-all;
+    max-width: 300px;
+    text-align: center;
+    position: static;
+    height: 50px;
+    
+  }
+  .textTable:hover{
+    max-width: none; 
+    white-space: normal; 
+    overflow: visible; 
+    text-overflow: initial;
+  }
   
   
