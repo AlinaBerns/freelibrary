@@ -47,10 +47,17 @@ sortDataByIsbn() {
   });
 }
 sortDataById() {
-  this.sortDirection = this.sortDirection === 'asc' ? 'desc' : 'asc';
-  this.books.sort((a, b) => {
-    return this.sortDirection === 'asc' ? a.id.localeCompare(b.id) : b.id.localeCompare(a.id);
-  });
+    this.sortDirection = this.sortDirection === 'asc' ? 'desc' : 'asc';
+    this.books.sort((a, b) => {
+      const idA = a.id;
+      const idB = b.id;
+  
+      if (this.sortDirection === 'asc') {
+        return idA - idB;
+      } else {
+        return idB - idA;
+      }
+    });
 }
 
  //Get all books

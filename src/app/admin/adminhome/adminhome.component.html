@@ -6,7 +6,10 @@
       <!-- head -->
       <thead>
         <tr>
-          <th style="width: 30px">ID</th>
+          <th style="width: 30px"
+          (click)="sortDataById()" 
+            [class.sorted-asc]="sortDirection === 'asc'" 
+            [class.sorted-desc]="sortDirection === 'desc'">ID</th>
           <th style="width: 100px">IMAGE</th>
           <th style="width: 300px"
           (click)="sortDataByTitle()" 
@@ -48,10 +51,11 @@
               <td>
                 <img src="/assets/imgBooks/book{{book.id}}.jpg" alt="" class="imgBook" />
               </td>
-              <td>
+              <td class="textTable">
                 {{book.title}}
               </td>
               <td class="textTable">{{book.author.name}}</td>
+
               <td>{{book.isbn}}</td>
               <td></td>
               <td>{{book.status}}</td>
