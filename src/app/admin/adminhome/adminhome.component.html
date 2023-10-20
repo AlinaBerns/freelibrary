@@ -1,12 +1,9 @@
 <body class="content">
   <app-navbaradmin></app-navbaradmin>
   <div class="container">
-    <button class="buttonCart" style="position: fixed">ADD BOOK</button>
+    <button class="buttonCart" style="position: fixed" mat-raised-button (click)="openDialog()">ADD BOOK</button>
     <table class="table">
       <!-- head -->
-
-      
-
       <thead>
         <tr>
           <th style="width: 30px">ID</th>
@@ -27,7 +24,8 @@
           (click)="sortDataByYear()" 
             [class.sorted-asc]="sortDirection === 'asc'" 
             [class.sorted-desc]="sortDirection === 'desc'">YEAR</th>
-          <th style="width: 200px">EDIT</th>
+          <th style="width: 200px">STATUS</th>
+          <th style="width: 100px">EDIT</th>
         </tr>
       </thead>
       <div class="container0">
@@ -48,41 +46,25 @@
             <tr *ngFor="let book of books">
               <td>{{book.id}}</td>
               <td>
-                <img src="/assets/imgBooks/book1.jpg" alt="" class="imgBook" />
+                <img src="/assets/imgBooks/book{{book.id}}.jpg" alt="" class="imgBook" />
               </td>
               <td>
                 {{book.title}}
               </td>
-              <td class="textTable">{{book.title}}</td>
+              <td class="textTable">{{book.author.name}}</td>
               <td>{{book.isbn}}</td>
-              <td>{{book.year}}</td>
+              <td></td>
+              <td>{{book.status}}</td>
 
               <td>
-                <button class="buttonBook2" routerLink="/updatebook">
+                <button class="buttonBook2" mat-raised-button (click)="openDialog(book)">
                   EDIT
                 </button>
+                <button class="buttonBook2" style="background-color: crimson;" (click)="deleteBook(book.id)">DELETE</button>
               </td>
               <td></td>
-              
             </tr>
-            <tr>
-                <td>1</td>
-                <td>
-                  <img src="/assets/imgBooks/book1.jpg" alt="" class="imgBook" />
-                </td>
-                <td>"Revival"</td>
-                <td>Stephen King</td>
-                <td>9780446310789</td>
-                <td>2014</td>
-  
-                <td>
-                  <button class="buttonBook2" routerLink="/updatebook">
-                    EDIT
-                  </button>
-                </td>
-                <td></td>
-                
-              </tr>
+
           </tbody>
         </div>
       </div>
