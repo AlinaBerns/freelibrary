@@ -42,5 +42,24 @@ export class BookService {
     }
   }
 
-  
+  addBook(book: any): Promise<any> {
+    return axios.post('http://localhost:8080/api/book/add', book, this.util.getConfig()).then(resp => resp.data);
+  }
+
+  updateBook(book: any): Promise<any> {
+    return axios.put('http://localhost:8080/api/book/update', book, this.util.getConfig()).then(resp => console.log(resp.data));
+  }
+
+  deleteBook(id: number): Promise<any> {
+
+    console.log('Delete book with id: ', id);
+    
+    return axios.delete(`http://localhost:8080/api/book/delete?bookId=${id}`, this.util.getConfig())
+    .catch(error => {
+      console.error(error);
+      return Promise.reject(error);
+    });
+    
+  }
+
 }

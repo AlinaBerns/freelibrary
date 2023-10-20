@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { BookService } from 'src/app/services/bookservice/book.service';
+import { BookDialogComponent, BookData } from '../.././dialogs/book-dialog/book-dialog.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-adminhome',
@@ -6,38 +9,16 @@ import { Component } from '@angular/core';
   styleUrls: ['./adminhome.component.css']
 })
 export class AdminhomeComponent {
-books:any[]=[
-  {id: 1, 
-    title: 'ATEST', 
-    author:'Aauthor', 
-    isbn:'9132345678954',
-    year: '1913',
-    
-  },
-  {id: 2, 
-    title: 'PTEST', 
-    author:'Dauthor', 
-    isbn:'9132345678955',
-    year: '1913',
-    
-  },
-  {id: 3, 
-    title: 'OTEST', 
-    author:'Aauthor', 
-    isbn:'9132345678956',
-    year: '1912',
-    
-  },
-  {id: 4, 
-    title: 'RTEST', 
-    author:'Dauthor', 
-    isbn:'9132345678957',
-    year: '1911',
-    
-  }
-];
+
+constructor(private bookService: BookService, public dialog: MatDialog) { }
+
+books:any[]=[];
 
 sortDirection: string = 'asc';
+
+ngOnInit(): void {
+  this.getAllBooks();
+}
 
 sortDataByTitle() {
   this.sortDirection = this.sortDirection === 'asc' ? 'desc' : 'asc';
@@ -55,7 +36,7 @@ sortDataByYear() {
 sortDataByAuthor() {
   this.sortDirection = this.sortDirection === 'asc' ? 'desc' : 'asc';
   this.books.sort((a, b) => {
-    return this.sortDirection === 'asc' ? a.author.localeCompare(b.author) : b.author.localeCompare(a.author);
+    return this.sortDirection === 'asc' ? a.author.name.localeCompare(b.author.name) : b.author.name.localeCompare(a.author.name);
   });
 }
 
@@ -78,4 +59,47 @@ sortDataById() {
       }
     });
 }
+
+ //Get all books
+ getAllBooks() {
+  this.bookService.getAllBooks().then(data => {
+    this.books = data;
+    console.log('Books: ', this.books);
+  }).catch(error => {
+    console.error('There was an error!', error);
+  });
+}
+
+
+openDialog(book?: BookData): void {
+  const dialogRef = this.dialog.open(BookDialogComponent, {
+    width: '260px',
+    data: book || {}
+  });
+
+  dialogRef.afterClosed().subscribe(result => {
+    console.log('The dialog was closed', result);
+    if (result) {
+      if (book && book.id > 0) {
+        this.bookService.updateBook(result).then(updatedBook => {
+          console.log('Updated book: ', updatedBook);
+          this.getAllBooks();
+        });
+      } else {
+        this.bookService.addBook(result).then(addedBook => {
+          console.log('Added book: ', addedBook);
+          this.getAllBooks();
+        });
+      }
+    }
+  });
+}
+
+deleteBook(id: number) {
+  this.bookService.deleteBook(id).then((resp) => {
+    alert(resp.message);
+    this.getAllBooks();
+  });
+}
+
 }

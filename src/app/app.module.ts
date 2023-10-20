@@ -20,6 +20,11 @@ import { UsersComponent } from './admin/users/users.component';
 import { BookDescriptionDialogComponent } from './description/book-description-dialog/book-description-dialog.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDialogModule } from '@angular/material/dialog';
+import { BookDialogComponent } from './dialogs/book-dialog/book-dialog.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import {MatSelectModule} from '@angular/material/select';
+import { NewAuthorDialogComponent } from './dialogs/newauthor-dialog/new-author-dialog/new-author-dialog.component';
 
 
 
@@ -32,14 +37,25 @@ import { MatDialogModule } from '@angular/material/dialog';
     NavbaraccountComponent, 
     NavbarcartComponent, 
     LoginComponent, 
-    RegistrationComponent, AdminhomeComponent, NavbaradminComponent, UsersComponent, BookDescriptionDialogComponent],
+    RegistrationComponent, 
+    AdminhomeComponent, 
+    NavbaradminComponent, 
+    UsersComponent, 
+    BookDescriptionDialogComponent, 
+    BookDialogComponent, NewAuthorDialogComponent,
+],
 
   imports: [BrowserModule, 
     AppRoutingModule,
   FormsModule,
   ReactiveFormsModule,
   BrowserAnimationsModule,
-  MatDialogModule],
+  MatDialogModule,
+  MatFormFieldModule,
+  MatInputModule,
+  MatSelectModule,
+  ReactiveFormsModule
+],
   providers: [ThemeService],
   bootstrap: [AppComponent],
 })
