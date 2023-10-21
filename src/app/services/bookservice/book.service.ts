@@ -62,4 +62,8 @@ export class BookService {
     
   }
 
+  returnBooks(bookIds: number[]): Promise<any> {
+    return axios.put('http://localhost:8080/api/book/return', bookIds, this.util.getConfig()).then(resp => console.log(resp.data));
+  }
+
 }

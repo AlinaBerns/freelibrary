@@ -15,8 +15,8 @@ const routes: Routes = [
   {path: 'cart', component:CartComponent,  canActivate: [authGuard], data: { allowedRoles: ['ROLE_USER'] }}, 
   {path:'login', component:LoginComponent, canActivate: [authGuard]},
   {path:'registration', component:RegistrationComponent, canActivate: [authGuard]},
-  {path:'adminhome', component:AdminhomeComponent},
-  {path:'adminusers', component:UsersComponent}
+  {path:'adminhome', component:AdminhomeComponent, canActivate: [authGuard], data: { allowedRoles: ['ROLE_ADMIN'] }},
+  {path:'adminusers', component:UsersComponent, canActivate: [authGuard], data: { allowedRoles: ['ROLE_ADMIN'] } }
 ];
 
 @NgModule({

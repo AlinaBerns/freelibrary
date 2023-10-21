@@ -1,0 +1,34 @@
+<mat-dialog-content>
+    <mat-tab-group>
+      <mat-tab label="Borrowed Books">
+        <h2>Borrowed Books ({{data.borrowedBooks.length}})</h2>
+        <mat-list>
+          <mat-list-item *ngFor="let borrowedBook of data.borrowedBooks">
+            <mat-checkbox (change)="toggleSelection(borrowedBook.book, true)">
+              {{ borrowedBook.book.title }} (Status: {{ borrowedBook.book.status}}) 
+            </mat-checkbox>
+          </mat-list-item>
+        </mat-list>
+        <mat-dialog-actions>
+            <button mat-stroked-button (click)="onNoClick()">Cancel</button>
+            <button mat-flat-button (click)="returnBooks(true)">Return Selected Books</button>
+          </mat-dialog-actions>
+      </mat-tab>
+      <mat-tab label="Reserved Books">
+        <h2>Reserved Books ({{data.reservedBooks.length}})</h2>
+        <mat-list>
+          <mat-list-item *ngFor="let reservedBook of data.reservedBooks">
+            <mat-checkbox (change)="toggleSelection(reservedBook.book, false)">
+              {{ reservedBook.book.title }} (Status: {{ reservedBook.book.status}}) 
+            </mat-checkbox>
+          </mat-list-item>
+        </mat-list>
+        <mat-dialog-actions style="text-align: center;">
+            <button mat-button (click)="onNoClick()">Cancel</button>
+            <button mat-button (click)="issueBooks()">Issue Selected Books</button>
+            <button mat-button (click)="returnBooks(false)">Return Selected Books</button>
+          </mat-dialog-actions>
+      </mat-tab>
+    </mat-tab-group>
+  </mat-dialog-content>
+  
