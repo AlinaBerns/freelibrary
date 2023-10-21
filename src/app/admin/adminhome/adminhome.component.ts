@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
 import { BookService } from 'src/app/services/bookservice/book.service';
+import { Subscription, switchMap } from 'rxjs';
 import { BookDialogComponent, BookData } from '../.././dialogs/book-dialog/book-dialog.component';
 import { MatDialog } from '@angular/material/dialog';
+import { SearchService } from 'src/app/services/searchservice/search.service';
 
 @Component({
   selector: 'app-adminhome',
@@ -10,7 +12,9 @@ import { MatDialog } from '@angular/material/dialog';
 })
 export class AdminhomeComponent {
 
-constructor(private bookService: BookService, public dialog: MatDialog) { }
+constructor(private bookService: BookService, public dialog: MatDialog, private searchService: SearchService) { }
+
+private searchSubscription: Subscription | undefined;
 
 books:any[]=[];
 
@@ -18,6 +22,25 @@ sortDirection: string = 'asc';
 
 ngOnInit(): void {
   this.getAllBooks();
+
+  this.searchSubscription = this.searchService.searchObservable.pipe(
+    switchMap(query => {
+      if (query !== null) {
+        return this.bookService.searchBooks(query);
+      } else {
+        return [];
+      }
+    })
+  ).subscribe({
+    next: data => {
+      this.books = data;
+      console.log('Books: ', this.books);
+      
+    },
+    error: error => {
+      console.error('There was an error!', error);
+    }
+  });
 }
 
 sortDataByTitle() {
@@ -100,6 +123,12 @@ deleteBook(id: number) {
     alert(resp.message);
     this.getAllBooks();
   });
+}
+
+ngOnDestroy() {
+  if (this.searchSubscription) {
+    this.searchSubscription.unsubscribe();
+  }
 }
 
 }

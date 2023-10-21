@@ -39,7 +39,7 @@ export class AuthService {
               this.router.navigate(['']);
               break;
             case 'ROLE_ADMIN':
-              this.router.navigate(['/admin/users']);
+              this.router.navigate(['/adminhome']);
               break;
             default:
               console.error('Invalid role:', roles[0]);

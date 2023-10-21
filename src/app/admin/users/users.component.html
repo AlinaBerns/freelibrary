@@ -44,8 +44,8 @@
               </td>
               <td class="textTable">{{user.username}}</td>
               <td class="textTable">{{user.email}}</td>
-              <td><button class="buttonBook2">VIEW</button></td>
-              <td><button class="buttonBook1">DELETE</button></td>
+              <td><button class="buttonBook2" (click)="openTabbedDialog(user.id)" [hidden]="isAdmin(user) === true">VIEW</button></td>
+              <td><button class="buttonBook1" (click)="deleteUser(user.id)" [hidden]="isAdmin(user) === true">DELETE</button></td>
             </tr>
           </tbody>
         </div>

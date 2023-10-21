@@ -8,6 +8,10 @@ import { AuthService } from '../security/auth.service';
 })
 export class UserService {
 
+  getAllUsers(): Promise<any> { // for admin
+    return axios.get('http://localhost:8080/api/users/getall', this.util.getConfig()).then(response => response.data);
+  }
+
 
   getUserInfo(): Promise<any> {
 
@@ -82,6 +86,14 @@ export class UserService {
 
   this.authService.logOut();
   }
+  }
+
+  deleteUserById(userId: number): void { // for admin
+    axios.delete('http://localhost:8080/api/users/delete?id=' + userId, this.util.getConfig()).then(response => response.data);
+  }
+
+  searchUsers(query: string): Promise<any> {
+    return axios.get('http://localhost:8080/api/users/search?query=' + query, this.util.getConfig()).then(response => response.data);
   }
 
   

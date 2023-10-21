@@ -15,7 +15,7 @@ export const authGuard: CanActivateFn = (route: ActivatedRouteSnapshot, state: R
     if (userRole) {
       // User has a role, redirect to home page
       if(userRole === 'ROLE_ADMIN') {
-        router.navigate(['/admin/users']);
+        router.navigate(['/adminhome']);
         return false;
       } else
       router.navigate(['']);
