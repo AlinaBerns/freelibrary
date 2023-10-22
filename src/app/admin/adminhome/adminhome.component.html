@@ -2,13 +2,10 @@
   <app-navbaradmin></app-navbaradmin>
   <div style="margin:1%">
     <button mat-raised-button (click)="openDialog()" style="margin-bottom:1% ; background-color: rgb(9, 138, 9); color: var(--text-color); border: 1px solid var(--border-color);">ADD BOOK</button>
+    <div style="overflow-y: scroll; max-height: 83vh; border: 1px solid var(--border-color) !important; border-radius: 8px;" >
     <mat-table [dataSource]="books"  class="mat-elevation-z8" matSort 
     style="background-color: var(--background-color); 
-    -webkit-text-fill-color: var(--text-color); 
-    border: 1px solid var(--border-color) !important;
-    border-radius: 8px;
-    overflow-y: scroll;
-    max-height: 83vh;">
+    -webkit-text-fill-color: var(--text-color);">
       <!-- ID Column -->
       <ng-container matColumnDef="id">
         <mat-header-cell *matHeaderCellDef mat-sort-header class="id"> ID </mat-header-cell>
@@ -51,13 +48,14 @@
       <ng-container matColumnDef="edit">
         <mat-header-cell *matHeaderCellDef> EDIT | DELETE </mat-header-cell>
         <mat-cell *matCellDef="let book">
-          <button mat-raised-button (click)="openDialog(book)" style="margin-right: 10px; background-color: var(--background-color); border: 1px solid var(--border-color) ">EDIT</button>
+          <button mat-raised-button (click)="openDialog(book)" style="margin-right: 10px; border: 1px solid var(--border-color); background-color: var(--background-color);">EDIT</button>
           <button mat-raised-button color="warn" (click)="deleteBookBar(book.id)">DELETE</button>
         </mat-cell>
       </ng-container>
-
-      <mat-header-row *matHeaderRowDef="displayedColumns" style="border-bottom: 1px solid gray"></mat-header-row>
+      
+      <mat-header-row *matHeaderRowDef="displayedColumns; sticky:true" style="border-bottom: 1px solid gray;"></mat-header-row>
       <mat-row *matRowDef="let row; columns: displayedColumns;" style="border-top: 1px solid gray"></mat-row>
     </mat-table>
+  </div>
   </div>
 </body>

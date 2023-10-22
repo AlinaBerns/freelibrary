@@ -57,6 +57,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 ::-webkit-scrollbar {
   width: 6px; /* Adjust width of scrollbar */
+  height: 6px;
 }
 
 /* This styles the clickable "thumb" part of the scrollbar */
