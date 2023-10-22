@@ -4,7 +4,6 @@
     <div class="my-custom-div">
       <div class="fixed-block"></div>
       <div class="scroll">
-
         <!--BOOK-->
         <div id="line_block" class="hover-image-scale" *ngFor="let book of books">
           <img src="/assets/imgBooks/book{{book.id}}.jpg" alt="" class="imgBook" />
@@ -34,7 +33,7 @@
 
       </div>
       <div class="userbox">
-        <img src="/assets/userPhotos/userPhoto1.png" alt="" class="userPhoto">
+        <img src="/assets/userPhotos/userPhoto{{id}}.png" alt="" class="userPhoto">
         <p class="userTextLogin">{{username}}</p>
         <p class="userTextEmail">{{email}}</p>
         <button class="buttonEditUser" routerLink="/account">EDIT PROFILE</button>

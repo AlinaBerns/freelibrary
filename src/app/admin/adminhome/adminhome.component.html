@@ -1,76 +1,63 @@
-<body class="content">
+<body style="height: 90vh;">
   <app-navbaradmin></app-navbaradmin>
-  <div class="container">
-    <button class="buttonCart" style="position: fixed;" mat-raised-button (click)="openDialog()">ADD BOOK</button>
-    <table class="table">
-      <!-- head -->
-      <thead>
-        <tr>
-          <th style="width: 30px"
-          (click)="sortDataById()" 
-            [class.sorted-asc]="sortDirection === 'asc'" 
-            [class.sorted-desc]="sortDirection === 'desc'">ID</th>
-          <th style="width: 100px">IMAGE</th>
-          <th style="width: 300px"
-          (click)="sortDataByTitle()" 
-            [class.sorted-asc]="sortDirection === 'asc'" 
-            [class.sorted-desc]="sortDirection === 'desc'">TITLE</th>
-          <th style="width: 300px"
-          (click)="sortDataByAuthor()" 
-            [class.sorted-asc]="sortDirection === 'asc'" 
-            [class.sorted-desc]="sortDirection === 'desc'">AUTHOR</th>
-          <th style="width: 200px"
-          (click)="sortDataByIsbn()" 
-            [class.sorted-asc]="sortDirection === 'asc'" 
-            [class.sorted-desc]="sortDirection === 'desc'">ISBN</th>
-          <th style="width: 200px"
-          (click)="sortDataByYear()" 
-            [class.sorted-asc]="sortDirection === 'asc'" 
-            [class.sorted-desc]="sortDirection === 'desc'">YEAR</th>
-          <th style="width: 200px">STATUS</th>
-          <th style="width: 100px">EDIT</th>
-        </tr>
-      </thead>
-      <div class="container0">
-        <div class="fixed-block"></div>
-        <div class="scroll">
-          <tbody>
-            <tr>
-              <th style="width: 30px"></th>
-              <th style="width: 100px"></th>
-              <th style="width: 400px"></th>
-              <th style="width: 400px"></th>
-              <th style="width: 400px"></th>
-              <th style="width: 300px"></th>
-              <th style="width: 200px"></th>
-              <th style="width:5px"></th>
-            </tr>
-            <!-- row 1 -->
-            <tr *ngFor="let book of books">
-              <td>{{book.id}}</td>
-              <td>
-                <img src="/assets/imgBooks/book{{book.id}}.jpg" alt="" class="imgBook" />
-              </td>
-              <td class="textTable">
-                {{book.title}}
-              </td>
-              <td class="textTable">{{book.author.name}}</td>
+  <div style="margin:1%">
+    <button mat-raised-button (click)="openDialog()" style="margin-bottom:1% ; background-color: rgb(9, 138, 9); color: var(--text-color); border: 1px solid var(--border-color);">ADD BOOK</button>
+    <mat-table [dataSource]="books"  class="mat-elevation-z8" matSort 
+    style="background-color: var(--background-color); 
+    -webkit-text-fill-color: var(--text-color); 
+    border: 1px solid var(--border-color) !important;
+    border-radius: 8px;
+    overflow-y: scroll;
+    max-height: 83vh;">
+      <!-- ID Column -->
+      <ng-container matColumnDef="id">
+        <mat-header-cell *matHeaderCellDef mat-sort-header class="id"> ID </mat-header-cell>
+        <mat-cell *matCellDef="let book" class="id"> {{book.id}} </mat-cell>
+      </ng-container>
 
-              <td>{{book.isbn}}</td>
-              <td></td>
-              <td>{{book.status}}</td>
+      <!-- Image Column -->
+      <ng-container matColumnDef="image">
+        <mat-header-cell *matHeaderCellDef> IMAGE </mat-header-cell>
+        <mat-cell *matCellDef="let book">
+          <img style="margin: 5%;" src="/assets/imgBooks/book{{book.id}}.jpg" alt="" class="imgBook" />
+        </mat-cell>
+      </ng-container>
 
-              <td>
-                <button class="buttonBook2" mat-raised-button (click)="openDialog(book)">
-                  EDIT
-                </button>
-                <button class="buttonBook2" mat-raised-button style="background-color: crimson;" (click)="deleteBook(book.id)">DELETE</button>
-              </td>
-              <td></td>
-            </tr>
-          </tbody>
-        </div>
-      </div>
-    </table>
+      <!-- Title Column -->
+      <ng-container matColumnDef="title" >
+        <mat-header-cell  *matHeaderCellDef mat-sort-header> TITLE </mat-header-cell>
+        <mat-cell *matCellDef="let book" > {{book.title}} </mat-cell>
+      </ng-container>
+
+      <!-- Author Column -->
+      <ng-container matColumnDef="author">
+        <mat-header-cell *matHeaderCellDef > AUTHOR </mat-header-cell>
+        <mat-cell *matCellDef="let book"> {{book.author.name}} </mat-cell>
+      </ng-container>
+
+      <!-- ISBN Column -->
+      <ng-container matColumnDef="isbn">
+        <mat-header-cell *matHeaderCellDef > ISBN </mat-header-cell>
+        <mat-cell *matCellDef="let book"> {{book.isbn}} </mat-cell>
+      </ng-container>
+
+      <!-- Status Column -->
+      <ng-container matColumnDef="status">
+        <mat-header-cell *matHeaderCellDef> STATUS </mat-header-cell>
+        <mat-cell *matCellDef="let book"> {{book.status}} </mat-cell>
+      </ng-container>
+
+      <!-- Edit Column -->
+      <ng-container matColumnDef="edit">
+        <mat-header-cell *matHeaderCellDef> EDIT | DELETE </mat-header-cell>
+        <mat-cell *matCellDef="let book">
+          <button mat-raised-button (click)="openDialog(book)" style="margin-right: 10px; background-color: var(--background-color); border: 1px solid var(--border-color) ">EDIT</button>
+          <button mat-raised-button color="warn" (click)="deleteBookBar(book.id)">DELETE</button>
+        </mat-cell>
+      </ng-container>
+
+      <mat-header-row *matHeaderRowDef="displayedColumns" style="border-bottom: 1px solid gray"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;" style="border-top: 1px solid gray"></mat-row>
+    </mat-table>
   </div>
 </body>

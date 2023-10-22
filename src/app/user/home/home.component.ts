@@ -22,6 +22,7 @@ export class HomeComponent {
 
   private searchSubscription: Subscription | undefined;
 
+  id: number = 0;
   username: string = '';
   email: string = '';
  
@@ -62,9 +63,26 @@ export class HomeComponent {
         
   
     openDescriptionDialog(book:any): void {
+      const descriptionExample = 
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec imperdiet ligula ac mi condimentum cursus.'+ 
+      'Pellentesque at quam sodales, pulvinar diam congue, efficitur dui. Donec dapibus tristique sem, '+
+      'eu malesuada massa pretium a. Curabitur non congue ex. Sed ornare libero dolor, eget blandit risus congue sed. '+
+      'Vestibulum facilisis justo non nisl ultricies, vitae rhoncus odio bibendum. Etiam quis purus at mi mollis hendrerit vel non sem.'+ 
+      'Pellentesque semper est a justo imperdiet sagittis. Suspendisse at urna nec odio hendrerit lacinia et interdum lectus. Aliquam dictum vestibulum aliquet.'+ 
+      'Proin mi urna, scelerisque sed consectetur porta, efficitur ultricies dui. Pellentesque purus ipsum, tristique eu vulputate non,'+ 
+      'aliquet quis ligula. Sed pulvinar sed lectus sed euismod. Duis ac lectus non lorem semper suscipit. Quisque aliquet imperdiet sem vitae fringilla.'+
+
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec imperdiet ligula ac mi condimentum cursus.'+ 
+      'Pellentesque at quam sodales, pulvinar diam congue, efficitur dui. Donec dapibus tristique sem, '+
+      'eu malesuada massa pretium a. Curabitur non congue ex. Sed ornare libero dolor, eget blandit risus congue sed. '+
+      'Vestibulum facilisis justo non nisl ultricies, vitae rhoncus odio bibendum. Etiam quis purus at mi mollis hendrerit vel non sem.'+ 
+      'Pellentesque semper est a justo imperdiet sagittis. Suspendisse at urna nec odio hendrerit lacinia et interdum lectus. Aliquam dictum vestibulum aliquet.'+ 
+      'Proin mi urna, scelerisque sed consectetur porta, efficitur ultricies dui. Pellentesque purus ipsum, tristique eu vulputate non,'+ 
+      'aliquet quis ligula. Sed pulvinar sed lectus sed euismod. Duis ac lectus non lorem semper suscipit. Quisque aliquet imperdiet sem vitae fringilla.';
+
       const dialogRef = this.dialog.open(BookDescriptionDialogComponent, {
         // data: { title: book.title, description: book.description }
-        data: { title: book.title, description:book.description }
+        data: { title: book.title, description:descriptionExample }
       });
     }
 
@@ -106,6 +124,7 @@ export class HomeComponent {
       .then(data => {
       this.username = data.username;
       this.email = data.email;
+      this.id = data.id;
     }).catch(error => { 
       console.error('There was an error!', error);
     });

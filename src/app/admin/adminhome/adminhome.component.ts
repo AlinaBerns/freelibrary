@@ -4,23 +4,50 @@ import { Subscription, switchMap } from 'rxjs';
 import { BookDialogComponent, BookData } from '../.././dialogs/book-dialog/book-dialog.component';
 import { MatDialog } from '@angular/material/dialog';
 import { SearchService } from 'src/app/services/searchservice/search.service';
+import { MatSort } from '@angular/material/sort';
+import { ViewChild } from '@angular/core';
+import { AfterViewInit } from '@angular/core';
+import { MatTableDataSource } from '@angular/material/table';
+import { Book } from 'src/app/dialogs/tabbed-dialog/tabbed-dialog.component';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { CustomSnackbarComponent } from 'src/app/dialogs/custom-snackbar/custom-snackbar.component';
+
 
 @Component({
   selector: 'app-adminhome',
   templateUrl: './adminhome.component.html',
   styleUrls: ['./adminhome.component.css']
 })
-export class AdminhomeComponent {
+export class AdminhomeComponent implements AfterViewInit{
 
-constructor(private bookService: BookService, public dialog: MatDialog, private searchService: SearchService) { }
+
+constructor(private bookService: BookService, public dialog: MatDialog, private searchService: SearchService, private snackBar: MatSnackBar) { }
 
 private searchSubscription: Subscription | undefined;
 
-books:any[]=[];
+displayedColumns: string[] = ['id', 'image', 'title', 'author', 'isbn',  'status', 'edit'];
+
+
+books = new MatTableDataSource<Book>([]);
 
 sortDirection: string = 'asc';
 
+@ViewChild(MatSort, {static: true}) sort!: MatSort | undefined;
+
+
+ngAfterViewInit() {
+  
+  if (this.sort) {
+    this.books.sort = this.sort;
+    
+    console.log(this.sort);
+    console.log(this.books);
+    
+  }
+}
+
 ngOnInit(): void {
+
   this.getAllBooks();
 
   this.searchSubscription = this.searchService.searchObservable.pipe(
@@ -33,7 +60,7 @@ ngOnInit(): void {
     })
   ).subscribe({
     next: data => {
-      this.books = data;
+      this.books.data = data;
       console.log('Books: ', this.books);
       
     },
@@ -43,51 +70,13 @@ ngOnInit(): void {
   });
 }
 
-sortDataByTitle() {
-  this.sortDirection = this.sortDirection === 'asc' ? 'desc' : 'asc';
-  this.books.sort((a, b) => {
-    return this.sortDirection === 'asc' ? a.title.localeCompare(b.title) : b.title.localeCompare(a.title);
-  });
-}
 
-sortDataByYear() {
-  this.sortDirection = this.sortDirection === 'asc' ? 'desc' : 'asc';
-  this.books.sort((a, b) => {
-    return this.sortDirection === 'asc' ? a.year.localeCompare(b.year) : b.year.localeCompare(a.year);
-  });
-}
-sortDataByAuthor() {
-  this.sortDirection = this.sortDirection === 'asc' ? 'desc' : 'asc';
-  this.books.sort((a, b) => {
-    return this.sortDirection === 'asc' ? a.author.name.localeCompare(b.author.name) : b.author.name.localeCompare(a.author.name);
-  });
-}
-
-sortDataByIsbn() {
-  this.sortDirection = this.sortDirection === 'asc' ? 'desc' : 'asc';
-  this.books.sort((a, b) => {
-    return this.sortDirection === 'asc' ? a.isbn.localeCompare(b.isbn) : b.isbn.localeCompare(a.isbn);
-  });
-}
-sortDataById() {
-    this.sortDirection = this.sortDirection === 'asc' ? 'desc' : 'asc';
-    this.books.sort((a, b) => {
-      const idA = a.id;
-      const idB = b.id;
-  
-      if (this.sortDirection === 'asc') {
-        return idA - idB;
-      } else {
-        return idB - idA;
-      }
-    });
-}
 
  //Get all books
  getAllBooks() {
   this.bookService.getAllBooks().then(data => {
-    this.books = data;
-    console.log('Books: ', this.books);
+    this.books.data = data;
+    console.log('Books: ', this.books.data);
   }).catch(error => {
     console.error('There was an error!', error);
   });
@@ -96,7 +85,7 @@ sortDataById() {
 
 openDialog(book?: BookData): void {
   const dialogRef = this.dialog.open(BookDialogComponent, {
-    width: '260px',
+    width: '500px', height: '600px',
     data: book || {}
   });
 
@@ -118,9 +107,30 @@ openDialog(book?: BookData): void {
   });
 }
 
+deleteBookBar(bookId: number) {
+  const snackBarRef = this.snackBar.openFromComponent(CustomSnackbarComponent, {
+    data: {
+      action: () => {
+        // Your delete action here, for example:
+        this.deleteBook(bookId);
+      },
+    },
+  });
+
+  // Optionally, you can also handle the action of dismissing the snackbar without confirmation:
+  snackBarRef.afterDismissed().subscribe(info => {
+    if (!info.dismissedByAction) {
+      // The snackbar was dismissed without confirmation
+    }
+  });
+}
+
+
 deleteBook(id: number) {
   this.bookService.deleteBook(id).then((resp) => {
-    alert(resp.message);
+    const snackBarRef = this.snackBar.open('Book deleted successfully!', 'ok', {
+      duration: 3000
+    });
     this.getAllBooks();
   });
 }

@@ -1,55 +1,51 @@
-<body class="content">
+<body>
   <app-navbaradmin></app-navbaradmin>
-  <div class="container">
-    <table class="table">
-      <thead>
-        <tr>
-          <th (click)="sortDataById()" 
-          [class.sorted-asc]="sortDirection === 'asc'" 
-          [class.sorted-desc]="sortDirection === 'desc'" 
-          style="width: 30px">ID</th>
-          <th style="width: 100px">PHOTO</th>
-          <th style="width: 250px"
-          (click)="sortDataByUsername()" 
-          [class.sorted-asc]="sortDirection === 'asc'" 
-          [class.sorted-desc]="sortDirection === 'desc'">USERNAME</th>
-          <th style="width: 200px"
-          (click)="sortDataByEmail()" 
-          [class.sorted-asc]="sortDirection === 'asc'" 
-          [class.sorted-desc]="sortDirection === 'desc'">EMAIL</th>
-          <th style="width: 120px">VIEW</th>
-          <th style="width: 120px">DELETE</th>
-        </tr>
-      </thead>
-      <div class="container0">
-        <div class="fixed-block"></div>
-        <div class="scroll">
-          <tbody>
-            <tr>
-              <th style="width: 30px"></th>
-              <th style="width: 250px"></th>
-              <th style="width: 350px"></th>
-              <th style="width: 350px"></th>
-              <th style="width: 200px"></th>
-              <th style="width: 200px"></th>
-            </tr>
-            <tr *ngFor="let user of users">
-              <td>{{user.id}}</td>
-              <td>
-                <img
-                  src="/assets/userPhotos/userPhoto1.png"
-                  alt=""
-                  class="imgUser"
-                />
-              </td>
-              <td class="textTable">{{user.username}}</td>
-              <td class="textTable">{{user.email}}</td>
-              <td><button class="buttonBook2" (click)="openTabbedDialog(user.id)" [hidden]="isAdmin(user) === true">VIEW</button></td>
-              <td><button class="buttonBook1" (click)="deleteUser(user.id)" [hidden]="isAdmin(user) === true">DELETE</button></td>
-            </tr>
-          </tbody>
-        </div>
-      </div>
-    </table>
+  <div style="margin:1%;">
+    <mat-table [dataSource]="users" matSort class="mat-elevation-z8" style="background-color: var(--background-color); 
+    -webkit-text-fill-color: var(--text-color); 
+    border: 1px solid var(--border-color) !important; 
+    border-radius: 8px; overflow-y: 
+    scroll; max-height: 102vh;
+    margin-top: 2%; overflow-y: scroll;">
+      <!-- ID Column -->
+      <ng-container matColumnDef="id">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> ID </mat-header-cell>
+        <mat-cell *matCellDef="let user"> {{user.id}} </mat-cell>
+      </ng-container>
+
+      <!-- Photo Column -->
+      <ng-container matColumnDef="photo">
+        <mat-header-cell *matHeaderCellDef> PHOTO </mat-header-cell>
+        <mat-cell *matCellDef="let user">
+          <img src="/assets/userPhotos/userPhoto{{user.id}}.png" alt="" class="imgUser" />
+        </mat-cell>
+      </ng-container>
+
+      <!-- Username Column -->
+      <ng-container matColumnDef="username">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> USERNAME </mat-header-cell>
+        <mat-cell *matCellDef="let user"> {{user.username}} </mat-cell>
+      </ng-container>
+
+      <!-- Email Column -->
+      <ng-container matColumnDef="email">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> EMAIL </mat-header-cell>
+        <mat-cell *matCellDef="let user"> {{user.email}} </mat-cell>
+      </ng-container>
+
+      <!-- Actions Column -->
+      <ng-container matColumnDef="actions">
+        <mat-header-cell *matHeaderCellDef> ACTIONS </mat-header-cell>
+        <mat-cell *matCellDef="let user">
+          <button  (click)="openTabbedDialog(user.id)" mat-raised-button [hidden]="isAdmin(user) === true"
+          style="margin-right: 10px; background-color: var(--background-color); border: 1px solid var(--border-color) ">VIEW</button>
+          <button (click)="deleteUser(user.id)" mat-raised-button color="warn" [hidden]="isAdmin(user) === true">DELETE</button>
+        </mat-cell>
+      </ng-container>
+
+      <mat-header-row *matHeaderRowDef="displayedColumns" style="border-bottom: 1px solid gray"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;" style="border-top: 1px solid gray"></mat-row>
+    </mat-table>
   </div>
 </body>
+
