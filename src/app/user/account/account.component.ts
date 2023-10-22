@@ -15,6 +15,7 @@ export class AccountComponent {
   constructor(private userService:UserService, 
     private borrowedBookService: BorrowedbookService) { }
 
+  id: number = 0;
   username: string = '';
   email: string = '';
 
@@ -80,6 +81,7 @@ export class AccountComponent {
   getUserInfo(): void {
     this.userService.getUserInfo()
       .then(data => {
+      this.id = data.id;
       this.username = data.username;
       this.email = data.email;
     }).catch(error => { 

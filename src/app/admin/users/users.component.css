@@ -14,6 +14,24 @@
     width: 100%;
     animation: ani 2.5s forwards;
 }
+
+::-webkit-scrollbar {
+  width: 6px; /* Adjust width of scrollbar */
+}
+
+/* This styles the clickable "thumb" part of the scrollbar */
+::-webkit-scrollbar-thumb {
+  background-color: gray; /* Make scrollbar thumb transparent */
+  border-radius: 6px; /* Optional: for rounded corners */
+}
+
+/* This styles the "track" part of the scrollbar */
+::-webkit-scrollbar-track {
+  background-color: rgba(0, 0, 0, 0.1); /* Make scrollbar track transparent */
+  border-radius: 6px; /* Optional: for rounded corners */
+}
+
+
 .container {
     position: relative;
     height: 100vh;
@@ -91,8 +109,15 @@
   }
   
   .imgUser {
-    width: 80px;
-    height: 80px;
+    max-width: 100%;  /* ensures the image doesn't stretch beyond its container */
+    height: auto;  /* maintains the image's aspect ratio as it scales */
+    border-radius: 50%;  /* optional: for circular images */
+    object-fit: cover;  /* ensures the image covers the area of its box, cropping if necessary */
+    display: block;  /* removes any default margins or padding */
+    width: 70px;
+    height: 70px;
+    margin-top:3%;
+    margin-bottom:3%;
   }
   .imgBook {
     width: 90px;

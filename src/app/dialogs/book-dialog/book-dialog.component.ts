@@ -73,7 +73,7 @@ export class BookDialogComponent{
 
   openNewAuthorDialog(): void {
     const dialogRef = this.dialog.open(NewAuthorDialogComponent, {
-      width: '250px'
+      width: '260px'
     });
   
     dialogRef.afterClosed().subscribe(result => {

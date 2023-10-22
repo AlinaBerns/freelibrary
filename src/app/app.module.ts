@@ -25,13 +25,16 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import {MatSelectModule} from '@angular/material/select';
 import { NewAuthorDialogComponent } from './dialogs/newauthor-dialog/new-author-dialog/new-author-dialog.component';
-import { BorrowedBooksDialogComponent } from './dialogs/borrowed-books-dialog/borrowed-books-dialog.component';
 import { MatListModule } from '@angular/material/list';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatTabsModule } from '@angular/material/tabs';
 import { TabbedDialogComponent } from './dialogs/tabbed-dialog/tabbed-dialog.component';
 import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
+import { MatTableModule } from '@angular/material/table';
+import { MatSortModule } from '@angular/material/sort';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { CustomSnackbarComponent } from './dialogs/custom-snackbar/custom-snackbar.component';
 
 
 
@@ -51,7 +54,7 @@ import {MatIconModule} from '@angular/material/icon';
     NavbaradminComponent, 
     UsersComponent, 
     BookDescriptionDialogComponent, 
-    BookDialogComponent, NewAuthorDialogComponent, BorrowedBooksDialogComponent, TabbedDialogComponent,
+    BookDialogComponent, NewAuthorDialogComponent,  TabbedDialogComponent, CustomSnackbarComponent,
 ],
 
   imports: [BrowserModule, 
@@ -69,6 +72,9 @@ import {MatIconModule} from '@angular/material/icon';
   MatTabsModule,
   MatButtonModule,
   MatIconModule,
+  MatTableModule,
+  MatSortModule,
+  MatSnackBarModule,
 ],
   providers: [ThemeService],
   bootstrap: [AppComponent],

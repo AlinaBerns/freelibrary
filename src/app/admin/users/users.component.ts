@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { BorrowedBook, BorrowedBooksDialogComponent, BorrowedBooksDialogData, User } from '../../dialogs/borrowed-books-dialog/borrowed-books-dialog.component';
+import { BorrowedBook, User } from '../../dialogs/tabbed-dialog/tabbed-dialog.component';
 import { UserService } from 'src/app/services/userservice/user.service';
 import { BorrowedbookService } from 'src/app/services/borrowedbookservice/borrowedbook.service';
 import { MatDialog } from '@angular/material/dialog';
@@ -8,6 +8,9 @@ import { TabbedDialogComponent } from 'src/app/dialogs/tabbed-dialog/tabbed-dial
 import { UtilsService } from 'src/app/services/security/utils.service';
 import { Subscription, switchMap } from 'rxjs';
 import { SearchService } from 'src/app/services/searchservice/search.service';
+import { ViewChild, AfterViewInit } from '@angular/core';
+import { MatSort } from '@angular/material/sort';
+import { MatTableDataSource } from '@angular/material/table';
 
 @Component({
   selector: 'app-users',
@@ -15,9 +18,11 @@ import { SearchService } from 'src/app/services/searchservice/search.service';
   styleUrls: ['./users.component.css']
 })
 export class UsersComponent {
-  users: User[] = [];
+  
   borrowedBooks: BorrowedBook[] = [];
   private searchSubscription: Subscription | undefined;
+
+  displayedColumns: string[] = ['id', 'photo', 'username', 'email', 'actions'];
 
   constructor(
     private userService: UserService,
@@ -27,11 +32,17 @@ export class UsersComponent {
     private searchService: SearchService
   ) { }
 
-  sortDirection: string = 'asc';
+  users = new MatTableDataSource<User>([]);
+  
+  @ViewChild(MatSort, {static: true}) sort!: MatSort;
+
+  ngAfterViewInit() {
+    this.users.sort = this.sort;
+  }
 
   ngOnInit(): void {
     this.userService.getAllUsers().then(users => {
-      this.users = users;
+      this.users.data = users;
 
       this.searchSubscription = this.searchService.searchObservable.pipe(
         switchMap(query => {
@@ -43,7 +54,7 @@ export class UsersComponent {
         })
       ).subscribe({
         next: data => {
-          this.users = data;
+          this.users.data = data;
           console.log('users ', this.users);
           
         },
@@ -73,33 +84,7 @@ export class UsersComponent {
   }
   
 
-  sortDataByUsername() {
-    this.sortDirection = this.sortDirection === 'asc' ? 'desc' : 'asc';
-    this.users.sort((a, b) => {
-      return this.sortDirection === 'asc' ? a.username.localeCompare(b.username) : b.username.localeCompare(a.username);
-    });
-  }
-
-  sortDataByEmail() {
-    this.sortDirection = this.sortDirection === 'asc' ? 'desc' : 'asc';
-    this.users.sort((a, b) => {
-      return this.sortDirection === 'asc' ? a.email.localeCompare(b.email) : b.email.localeCompare(a.email);
-    });
-  }
-
-  sortDataById() {
-    this.sortDirection = this.sortDirection === 'asc' ? 'desc' : 'asc';
-    this.users.sort((a, b) => {
-      const idA = a.id;
-      const idB = b.id;
-  
-      if (this.sortDirection === 'asc') {
-        return idA - idB;
-      } else {
-        return idB - idA;
-      }
-    });
-  }
+ 
 
   openTabbedDialog(userId: number): void {
     this.borrowedBookService.getBorrowedBooksFromUser(userId).then(allBooks => {
@@ -109,7 +94,7 @@ export class UsersComponent {
   
       // Opening the dialog with the filtered books
       const dialogRef = this.dialog.open(TabbedDialogComponent, {
-        width: '550px',
+        width: '600px', height: '500px',
         data: { borrowedBooks: borrowedBooks, reservedBooks: reservedBooks, userId: userId }
       });
     }).catch(error => {
@@ -120,7 +105,7 @@ export class UsersComponent {
 
   deleteUser(userId: number): void {
     this.userService.deleteUserById(userId);
-    this.users = this.users.filter(user => user.id !== userId);
+    this.users.data = this.users.data.filter(user => user.id !== userId);
   }
 
 
