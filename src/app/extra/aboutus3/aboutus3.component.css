@@ -1,4 +1,5 @@
 
+
 * {
     margin: 0;
     padding: 0;
@@ -6,6 +7,17 @@
   
   body {
     font-family: "Poppins", sans-serif;
+    background-image: url(/assets/background_img4.jpg); 
+  background: cener no-repeat;
+  background-size:cover;
+  background-attachment: fixed;
+  height: 80pc;
+  top: 0;
+  left: 0;
+  right: 0;
+  outline: none;
+  margin: 0%;
+  padding: 0%;
   }
   
   html {
