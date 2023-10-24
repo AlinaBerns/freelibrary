@@ -6,6 +6,7 @@ section {
     margin: 0 10rem;
     box-sizing: border-box;
     min-height: fit-content;
+    font-family: Kaisei Decol;
   }
   
   .section-container {
@@ -32,25 +33,30 @@ section {
   .section__text {
     align-self: center;
     text-align: center;
+    font-family: Kaisei Decol;
   }
   
   .section__text p {
     font-weight: 600;
+    font-family: Kaisei Decol;
   }
   
   .section__text__p1 {
     text-align: center;
+    font-family: Kaisei Decol;
   }
   
   .section__text__p2 {
     font-size: 1.75rem;
     margin-bottom: 1rem;
+    font-family: Kaisei Decol;
   }
   
   .title {
     font-size: 2.5rem;
     text-align: center;
     color: white;
+    font-family: Kaisei Decol;
   }
   
   #socials-container {
@@ -155,6 +161,7 @@ section {
     border: rgb(53, 53, 53) 0.1rem solid;
     border-color: rgb(163, 163, 163);
     text-align: center;
+    font-family: Kaisei Decol;
   }
   
   .section-container {
@@ -185,6 +192,7 @@ section {
     margin: 0%;
     padding: 0%;
     background-attachment: fixed;
+    line-height: 1.5;
   }
   
   html {
@@ -193,6 +201,7 @@ section {
   
   p {
     color: rgb(255, 252, 252);
+    font-size: large;
   }
   
   /* TRANSITION */

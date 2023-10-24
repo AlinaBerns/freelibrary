@@ -7,6 +7,7 @@
   .container {
     height: 3%;
     background-size: cover;
+    font-family: Kaisei Decol;
   }
   
   .header {
@@ -20,6 +21,7 @@
     background: rgba(8, 8, 8, 0.47);
     border: rgb(53, 53, 53) 0.1rem solid;
     border-color: rgb(163, 163, 163);  
+    font-family: Kaisei Decol;
   }
   
   nav {
@@ -30,24 +32,29 @@
     padding: 0 2rem;
     color: #fff;
     margin: auto;
+    font-family: Kaisei Decol;
   }
   
   .right-section {
     display: flex;
     gap: 2rem;
     align-items: center;
+    font-family: Kaisei Decol;
   }
   
   .nav-links {
     display: flex;
     gap: 1rem;
     font-size: 20px;
+    font-family: Kaisei Decol;
   }
   
   .nav-link {
     list-style: none;
     cursor: pointer;
     font-size: 25px;
+    font-family: Kaisei Decol;
+
   }
   .nav-link, .drop-down li {
     list-style: none;
@@ -55,6 +62,8 @@
     padding: 0.5rem 1rem;
     font-weight: 600;
     cursor: pointer;
+    font-family: Kaisei Decol;
+
   }
   
   
@@ -63,6 +72,8 @@
     color: #fff;
     font-weight: 600;
     position: relative;
+    font-family: Kaisei Decol;
+  
   }
   b{
     font-size: 2rem;
@@ -132,6 +143,7 @@
     right: -5px;
     transform: rotate(0deg);
     transition: 0.3s ease-in-out all;
+    
   }
   
   .names:hover  {
@@ -141,13 +153,18 @@
   .drop-down li:hover {
     color: #fff;
     border-radius: 0.5rem;
+    background-color: black;
+    transition: 1s;
   }
   .team-players:focus + .drop-down,
   .team-players:hover + .drop-down {
     display: block;
+    
+    
   }
   #toggle:checked + .drop-down {
     display: block;
+    
   }
 
   * {
@@ -165,6 +182,8 @@
     outline: none;
     margin: 0%;
     padding: 0%;
+    
+    
   }
   html {
     scroll-behavior: smooth;

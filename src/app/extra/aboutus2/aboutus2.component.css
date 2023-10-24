@@ -174,7 +174,7 @@ section {
   }
   
   body {
-    font-family: "Poppins", sans-serif;
+    font-family: Kaisei Decol;
     background-image: url(/assets/background_img4.jpg); 
   background: cener no-repeat;
   background-size:cover;
@@ -186,6 +186,7 @@ section {
   outline: none;
   margin: 0%;
   padding: 0%;
+  line-height: 1.5;
   }
   
   html {
@@ -194,6 +195,7 @@ section {
   
   p {
     color: rgb(255, 252, 252);
+    font-size: large;
   }
   
   /* TRANSITION */

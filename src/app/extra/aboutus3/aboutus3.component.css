@@ -6,7 +6,7 @@
   }
   
   body {
-    font-family: "Poppins", sans-serif;
+    font-family: Kaisei Decol;
     background-image: url(/assets/background_img4.jpg); 
   background: cener no-repeat;
   background-size:cover;
@@ -18,6 +18,7 @@
   outline: none;
   margin: 0%;
   padding: 0%;
+  line-height: 1.5;
   }
   
   html {
@@ -26,6 +27,9 @@
   
   p {
     color: rgb(255, 252, 252);
+    font-size: large;
+    
+    
   }
   
   /* TRANSITION */
@@ -55,6 +59,7 @@
     margin: 0 10rem;
     box-sizing: border-box;
     min-height: fit-content;
+    
   }
   
   .section-container {
@@ -84,7 +89,7 @@
   }
   
   .section__text p {
-    font-weight: 600;
+    font-weight: 700;
   }
   
   .section__text__p1 {
@@ -180,11 +185,13 @@
   .about-details-container {
     justify-content: center;
     flex-direction: column;
+    
   }
   
   .about-containers,
   .about-details-container {
     display: flex;
+    
   }
   
   .about-pic {
@@ -205,9 +212,11 @@
     border: rgb(53, 53, 53) 0.1rem solid;
     border-color: rgb(163, 163, 163);
     text-align: center;
+    
   }
   
   .section-container {
     gap: 4rem;
     height: 80%;
+    
   }
