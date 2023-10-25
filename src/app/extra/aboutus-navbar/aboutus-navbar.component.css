@@ -1,0 +1,199 @@
+* {
+    margin: 0;
+    padding: 0;
+    z-index: 1;
+  }
+  
+  .container {
+    height: 3%;
+    background-size: cover;
+    font-family: Kaisei Decol;
+  }
+  
+  .header {
+    position: fixed;
+    width: 100%;
+    height: 5rem;
+    display: flex;
+    height: flex;
+    padding: 1rem;
+    flex: 1;
+    background: rgb(8, 8, 8);
+    border: rgb(53, 53, 53) 0.1rem solid;
+    border-color: rgb(163, 163, 163);  
+    font-family: Kaisei Decol;
+  }
+  
+  nav {
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2rem;
+    color: #fff;
+    margin: auto;
+    font-family: Kaisei Decol;
+  }
+  
+  .right-section {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+    font-family: Kaisei Decol;
+  }
+  
+  .nav-links {
+    display: flex;
+    gap: 1rem;
+    font-size: 20px;
+    font-family: Kaisei Decol;
+  }
+  
+  .nav-link {
+    list-style: none;
+    cursor: pointer;
+    font-size: 25px;
+    font-family: Kaisei Decol;
+
+  }
+  .nav-link, .drop-down li {
+    list-style: none;
+    height: 100%;
+    padding: 0.5rem 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    font-family: Kaisei Decol;
+
+  }
+  
+  
+  a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: 600;
+    position: relative;
+    font-family: Kaisei Decol;
+  
+  }
+  b{
+    font-size: 2rem;
+    padding: 1vh;
+    text-align: left;
+    font-family: Kaisei Decol;
+    color: white;
+  }
+  .btn-login {
+    background: linear-gradient(45deg, #e1d5f5, grey);
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.4;
+  }
+  
+  a:hover {
+    color: grey;
+  }
+  
+  a::before {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -5px;
+    margin: auto;
+    width: 0%;
+    content: '';
+    color: transparent;
+    background: linear-gradient(45deg, #e1d5f5, grey);
+    height: 1px;
+    transition: all 0.2s;
+  }
+  
+  a:hover::before {
+    width: 100%;
+  }
+  
+  .drop-down {
+    position: absolute;
+    padding: 0.5rem 0;
+    margin: 0.5rem -0.5rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    font-size: 16px;
+    display: none;
+  }
+  .nav-link:hover {
+    color: #fff;
+    border-radius: 0.5rem;
+  }
+  
+  .nav-link:hover .drop-down{
+    display: block;
+  }
+  
+  a {
+    display: flex;
+    align-items: center;
+  }
+  
+  .names {
+    font-size: 18px;
+    position: relative;
+    right: -5px;
+    transform: rotate(0deg);
+    transition: 0.3s ease-in-out all;
+    
+  }
+  
+  .names:hover  {
+    transform: rotate(180deg);
+  }
+  
+  .drop-down li:hover {
+    color: #fff;
+    border-radius: 0.5rem;
+    background-color: black;
+    transition: 1s;
+  }
+  .team-players:focus + .drop-down,
+  .team-players:hover + .drop-down {
+    display: block;
+    
+    
+  }
+  #toggle:checked + .drop-down {
+    display: block;
+    
+  }
+
+  * {
+    margin: 0;
+    padding: 0;
+  }
+  body {
+    background-image: url("/assets/background_img4.jpg");
+    background: cener no-repeat;
+    background-size:cover;
+    height: 120pc;
+    top: 0;
+    left: 0;
+    right: 0;
+    outline: none;
+    margin: 0%;
+    padding: 0%;
+    
+    
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  p {
+    color: rgb(85, 85, 85);
+  }
+  
+  a,
+  .btn {
+    transition: all 300ms ease;
+  }

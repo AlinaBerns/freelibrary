@@ -35,6 +35,12 @@ import { MatTableModule } from '@angular/material/table';
 import { MatSortModule } from '@angular/material/sort';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { CustomSnackbarComponent } from './dialogs/custom-snackbar/custom-snackbar.component';
+import { ThankstoComponent } from './extra/thanksto/thanksto.component';
+import { AboutusComponent } from './extra/aboutus/aboutus.component';
+import { Aboutus2Component } from './extra/aboutus2/aboutus2.component';
+import { Aboutus3Component } from './extra/aboutus3/aboutus3.component';
+import { AboutusNavbarComponent } from './extra/aboutus-navbar/aboutus-navbar.component';
+import { ProjectdetailsComponent } from './extra/projectdetails/projectdetails.component';
 
 
 
@@ -54,7 +60,7 @@ import { CustomSnackbarComponent } from './dialogs/custom-snackbar/custom-snackb
     NavbaradminComponent, 
     UsersComponent, 
     BookDescriptionDialogComponent, 
-    BookDialogComponent, NewAuthorDialogComponent,  TabbedDialogComponent, CustomSnackbarComponent,
+    BookDialogComponent, NewAuthorDialogComponent,  TabbedDialogComponent, CustomSnackbarComponent, ThankstoComponent, AboutusComponent, Aboutus2Component, Aboutus3Component, AboutusNavbarComponent, ProjectdetailsComponent,
 ],
 
   imports: [BrowserModule, 
